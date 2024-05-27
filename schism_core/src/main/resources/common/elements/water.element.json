@@ -1,0 +1,12 @@
+{
+    "color": "0x1B40C5",
+    "vis_polarisations": [
+        "inundation"
+    ],
+    "fusion_components": [],
+    "particle_type_id": "schism:water",
+    "particle_block_id": "",
+    "particle_force": 0.25,
+    "particle_offset": 0.25,
+    "sound": "schism:element.water"
+}

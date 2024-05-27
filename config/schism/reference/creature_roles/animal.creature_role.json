@@ -1,0 +1,10 @@
+{
+    "hunts": [],
+    "avoids": [
+        "predator",
+        "boss"
+    ],
+    "protects": [],
+    "rivals": [],
+    "ignores": []
+}

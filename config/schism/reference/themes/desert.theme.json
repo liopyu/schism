@@ -1,0 +1,74 @@
+{
+    "floor_pattern": "random",
+    "wall_pattern": "random",
+    "ceiling_pattern": "random",
+    "floor_blocks": [
+        {
+            "block_id": "schism:desertstone_tile",
+            "weight": 8
+        },
+        {
+            "block_id": "schism:desertstone_polished",
+            "weight": 2
+        }
+    ],
+    "wall_blocks": [
+        {
+            "block_id": "schism:desertstone_brick",
+            "weight": 8
+        },
+        {
+            "block_id": "schism:desertstone_chiseled",
+            "weight": 2
+        },
+        {
+            "block_id": "schism:desertstone_pillar",
+            "weight": 0
+        }
+    ],
+    "ceiling_blocks": [
+        {
+            "block_id": "schism:desertstone_tile",
+            "weight": 8
+        },
+        {
+            "block_id": "schism:desertstone_polished",
+            "weight": 2
+        }
+    ],
+    "light_blocks": [
+        {
+            "block_id": "schism:desert_crystal",
+            "weight": 8
+        }
+    ],
+    "torch_blocks": [],
+    "stair_blocks": [
+        {
+            "block_id": "schism:desertstone_stairs",
+            "weight": 8
+        },
+        {
+            "block_id": "schism:desertstone_brick_stairs",
+            "weight": 8
+        },
+        {
+            "block_id": "schism:desertstone_tile_stairs",
+            "weight": 8
+        }
+    ],
+    "pit_blocks": [
+        {
+            "block_id": "schism:smitefire",
+            "weight": 8
+        },
+        {
+            "block_id": "schism:acid",
+            "weight": 8
+        },
+        {
+            "block_id": "schism:ooze",
+            "weight": 8
+        }
+    ]
+}

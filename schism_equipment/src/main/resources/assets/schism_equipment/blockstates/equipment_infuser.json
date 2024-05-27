@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "schism:block/equipment_infuser" },
+        "facing=south": { "model": "schism:block/equipment_infuser", "y": 180 },
+        "facing=west":  { "model": "schism:block/equipment_infuser", "y": 270 },
+        "facing=east":  { "model": "schism:block/equipment_infuser", "y": 90 }
+    }
+}

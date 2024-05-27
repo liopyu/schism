@@ -1,0 +1,37 @@
+{
+    "schism.command.notify.fail": "Failed to create notification, please ensure that all arguments are correct.",
+    "schism.command.notify.success": "Notification created successfully.",
+
+    "schism.command.track.success": "Creature tracking target set.",
+    "schism.command.track.self.success": "Creature tracking target set to self.",
+    "schism.command.track.clear.success": "Creature tracking target cleared.",
+
+    "schism.command.level.add.fail.targets": "No targets found for adding levels to.",
+    "schism.command.level.add.fail.player": "Invalid player for adding levels to.",
+    "schism.command.level.add.success": "Levels added.",
+    "schism.command.level.set.fail.targets": "No targets found for setting levels.",
+    "schism.command.level.set.fail.player": "Invalid player for setting levels.",
+    "schism.command.level.set.success": "Level set.",
+
+    "schism.command.experience.add.fail.targets": "No targets found for adding experience to.",
+    "schism.command.experience.add.fail.player": "Invalid player for adding experience to.",
+    "schism.command.experience.add.success": "Experience added.",
+
+    "schism.command.worship.add.fail.targets": "No targets found for adding god worship to.",
+    "schism.command.worship.add.fail.player": "Invalid player for adding god worship to.",
+    "schism.command.worship.add.fail.god": "The god you have specified is not known to this reality.",
+    "schism.command.worship.add.success": "God worship added.",
+    "schism.command.worship.remove.fail.targets": "No targets found for removing god worship from.",
+    "schism.command.worship.remove.fail.player": "Invalid player for removing god worship from.",
+    "schism.command.worship.remove.fail.god": "The god you have specified is not known to this reality.",
+    "schism.command.worship.remove.success": "God worship removed.",
+
+    "schism.command.altar.check.fail.player": "Invalid player for checking nearby altars.",
+    "schism.command.altar.check.missing": "Altar not found.",
+    "schism.command.altar.check.found": "Altar is present.",
+
+    "schism.command.altar.build.fail.player": "Invalid player for building nearby altars.",
+    "schism.command.altar.build.fail.position": "Invalid build position, must be in a loaded chunk.",
+    "schism.command.altar.build.fail.altar": "Invalid altar.",
+    "schism.command.altar.build.success": "The Altar has been built."
+}

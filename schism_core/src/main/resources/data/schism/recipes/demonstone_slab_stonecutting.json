@@ -1,0 +1,8 @@
+{
+	"type": "minecraft:stonecutting",
+	"ingredient": {
+		"item": "schism:demonstone"
+	},
+	"result": "schism:demonstone_slab",
+	"count": 2
+}

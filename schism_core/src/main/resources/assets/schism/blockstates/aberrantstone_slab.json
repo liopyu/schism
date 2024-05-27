@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "schism:block/aberrantstone_slab" },
+        "type=top": { "model": "schism:block/aberrantstone_slab_top" },
+        "type=double": { "model": "schism:block/aberrantstone_slab_double" }
+    }
+}

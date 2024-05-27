@@ -1,0 +1,20 @@
+{
+    "entity_id": "minecraft:piglin",
+    "creature_type": "piglin",
+    "realm": "nether",
+    "creature_roles": [
+        "monster"
+    ],
+    "base_element": "nether",
+    "resist_elements": [
+
+    ],
+    "weakness_elements": [
+
+    ],
+    "stats_per_level": {
+        "health": 0.1,
+        "attack": 0.2,
+        "defense": 0.01
+    }
+}

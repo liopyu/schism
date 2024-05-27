@@ -1,0 +1,18 @@
+{
+    "color": "0xFFBB551",
+    "beneficial": true,
+    "detrimental": false,
+    "group": "charm",
+    "effect_actions": {
+        "spread_poison": {
+            "type": "spread",
+            "effect_id": "schism:paralysis",
+            "on_damage_dealt": false,
+            "range": 4,
+            "level_offset": 0,
+            "duration_min": 60,
+            "duration_inherit": false,
+            "include_self": false
+        }
+    }
+}

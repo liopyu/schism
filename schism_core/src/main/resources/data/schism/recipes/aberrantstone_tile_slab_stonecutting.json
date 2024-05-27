@@ -1,0 +1,8 @@
+{
+	"type": "minecraft:stonecutting",
+	"ingredient": {
+		"item": "schism:aberrantstone_tile"
+	},
+	"result": "schism:aberrantstone_tile_slab",
+	"count": 2
+}

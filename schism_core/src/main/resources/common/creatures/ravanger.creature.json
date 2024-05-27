@@ -1,0 +1,20 @@
+{
+    "entity_id": "minecraft:ravager",
+    "creature_type": "ravager",
+    "realm": "overworld",
+    "creature_roles": [
+        "monster"
+    ],
+    "base_element": "earth",
+    "resist_elements": [
+
+    ],
+    "weakness_elements": [
+
+    ],
+    "stats_per_level": {
+        "health": 0.1,
+        "attack": 0.2,
+        "defense": 0.01
+    }
+}

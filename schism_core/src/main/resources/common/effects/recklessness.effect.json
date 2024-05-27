@@ -1,0 +1,18 @@
+{
+    "color": "0xFF0044",
+    "beneficial": true,
+    "detrimental": true,
+    "group": "curse",
+    "effect_actions": {
+        "damage_dealt": {
+            "type": "damage_dealt",
+            "multiply": 1,
+            "add": 4
+        },
+        "damage_taken": {
+            "type": "damage_taken",
+            "multiply": 1,
+            "add": 4
+        }
+    }
+}

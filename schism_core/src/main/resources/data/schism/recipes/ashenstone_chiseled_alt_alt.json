@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "schism:ashenstone_chiseled",
+    "count": 2
+  },
+  "pattern": [
+    "B ",
+    "B "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "schism:ashenstone_tile_slab",
+      "data": 0
+    }
+  }
+}

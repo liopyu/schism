@@ -1,0 +1,20 @@
+{
+    "entity_id": "minecraft:strider",
+    "creature_type": "strider",
+    "realm": "nether",
+    "creature_roles": [
+        "critter"
+    ],
+    "base_element": "nether",
+    "resist_elements": [
+
+    ],
+    "weakness_elements": [
+
+    ],
+    "stats_per_level": {
+        "health": 0.1,
+        "attack": 0.2,
+        "defense": 0.01
+    }
+}

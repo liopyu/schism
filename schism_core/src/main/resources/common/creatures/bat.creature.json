@@ -1,0 +1,16 @@
+{
+    "entity_id": "minecraft:bat",
+    "creature_type": "bat",
+    "realm": "overworld",
+    "creature_roles": [
+        "critter"
+    ],
+    "base_element": "air",
+    "resist_elements": [],
+    "weakness_elements": [],
+    "stats_per_level": {
+        "health": 0.1,
+        "attack": 0.1,
+        "defense": 0.1
+    }
+}

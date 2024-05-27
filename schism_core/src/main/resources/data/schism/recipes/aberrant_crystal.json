@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "schism:aberrant_crystal"
+  },
+  "ingredients": [
+    {
+      "item": "schism:aberrantstone"
+    },
+    {
+      "item": "minecraft:glowstone"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

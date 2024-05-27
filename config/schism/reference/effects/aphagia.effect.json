@@ -1,0 +1,15 @@
+{
+    "color": "0xFFDDDD",
+    "beneficial": false,
+    "detrimental": true,
+    "group": "taint",
+    "effect_actions": {
+        "items": {
+            "type": "items",
+            "prevent_any": false,
+            "prevent_food": true,
+            "prevent_potions": true,
+            "prevent_equipment": false
+        }
+    }
+}

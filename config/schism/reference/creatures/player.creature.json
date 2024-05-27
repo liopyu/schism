@@ -1,0 +1,10 @@
+{
+    "entity_id": "minecraft:player",
+    "creature_type": "human",
+    "creature_roles": [
+        "humanoid"
+    ],
+    "base_element": "quake",
+    "resist_elements": [],
+    "weakness_elements": []
+}

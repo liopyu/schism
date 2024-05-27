@@ -1,0 +1,97 @@
+{
+    "properties": {
+        "creative_mode_tab": "blocks",
+        "creative_mode_icon": "",
+        "type": "fluid",
+        "material": "water",
+        "has_collision": false,
+        "sound_type": "slime_block",
+        "destroy_time": 0,
+        "explosion_resistance": 100,
+        "light_emission": 0,
+        "friction": 0.6,
+        "speed_factor": 1,
+        "jump_factor": 1,
+        "tool_for_drops": true,
+        "tick_random": true
+    },
+    "block_actions": {
+        "effect": {
+            "type": "effect",
+            "effect_id": "minecraft:poison",
+            "ticks": 100,
+            "level": 1
+        },
+        "particles": {
+            "type": "particles",
+            "type_id": "schism:poison",
+            "block_id": "",
+            "tick_interval": 5,
+            "chance": 1.0,
+            "offset_min": 0.0,
+            "offset_max": 0.5,
+            "force_min": 0.1,
+            "force_max": 0.2,
+            "count_min": 1,
+            "count_max": 2
+        },
+        "sound": {
+            "type": "sound",
+            "sound": "schism:block.poison",
+            "tick_interval": 120,
+            "chance": 0.125,
+            "volume_min": 0.25,
+            "volume_max": 0.5,
+            "pitch_min": 0.9,
+            "pitch_max": 1.1
+        }
+    },
+    "fluid": {
+        "color": "0x9C27B0",
+        "density": 1000,
+        "viscosity": 8,
+        "temperature": 10,
+        "luminosity": 0,
+        "multiply": false,
+        "sloping": 2,
+        "drop_off": 2,
+        "tick_rate": 8
+    },
+    "generation": {
+        "lake_surface": {
+            "type": "lake",
+            "underground": false,
+            "average_chunk": 200,
+            "biome_categories": [
+                "jungle",
+                "forest",
+                "swamp",
+                "mushroom",
+                "underground"
+            ]
+        },
+        "lake_underground": {
+            "type": "lake",
+            "underground": true,
+            "average_chunk": 18,
+            "biome_categories": [
+                "jungle",
+                "forest",
+                "swamp",
+                "mushroom",
+                "underground"
+            ]
+        },
+        "spring": {
+            "type": "spring",
+            "count": 10,
+            "biome_categories": [
+                "jungle",
+                "forest",
+                "swamp",
+                "mushroom",
+                "underground"
+            ]
+        }
+    }
+}

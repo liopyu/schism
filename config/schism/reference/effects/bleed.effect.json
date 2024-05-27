@@ -1,0 +1,15 @@
+{
+    "color": "0xFF2222",
+    "beneficial": false,
+    "detrimental": true,
+    "group": "ailment",
+    "effect_actions": {
+        "damage": {
+            "type": "damage",
+            "element": "fae",
+            "damage": 1,
+            "tick_rate": 20,
+            "require_movement": true
+        }
+    }
+}

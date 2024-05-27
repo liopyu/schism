@@ -1,0 +1,83 @@
+{
+    "properties": {
+        "creative_mode_tab": "blocks",
+        "creative_mode_icon": "",
+        "type": "fire",
+        "material": "fire",
+        "has_collision": false,
+        "sound_type": "wool",
+        "destroy_time": 0,
+        "explosion_resistance": 0,
+        "light_emission": 0,
+        "friction": 0.6,
+        "speed_factor": 1,
+        "jump_factor": 1,
+        "tool_for_drops": true,
+        "tick_random": true
+    },
+    "client": {
+        "render_type": "cutout"
+    },
+    "behavior": {
+        "age": 15,
+        "tick_rate_min": 30,
+        "tick_rate_max": 40,
+        "persistent_default": false,
+        "use_fire_source": false
+    },
+    "source_block_ids": [
+        "minecraft:packed_ice",
+        "minecraft:frosted_ice"
+    ],
+    "block_actions": {
+        "age": {
+            "type": "age",
+            "speed_min": 2,
+            "speed_max": 4
+        },
+        "deteriorate": {
+            "type": "deteriorate",
+            "chance": 1.0,
+            "age_min": 15,
+            "destroyed_by_rain": false
+        },
+        "planted": {
+            "type": "planted",
+            "remove_chance": 1.0,
+            "age_min": 0,
+            "directions_solid": [
+                "down"
+            ],
+            "specific_block_ids": [
+                "minecraft:packed_ice",
+                "minecraft:frosted_ice"
+            ],
+            "directions_specific": [
+                "up",
+                "down",
+                "cardinal"
+            ]
+        },
+        "spread": {
+            "type": "spread",
+            "spread_chance": 0.5,
+            "spread_flammable": false,
+            "spread_block_ids": [
+                "minecraft:ice",
+                "minecraft_snow"
+            ]
+        },
+        "damage": {
+            "type": "damage",
+            "element": "frost",
+            "damage": 1,
+            "tick_rate": 20
+        },
+        "effect": {
+            "type": "effect",
+            "effect_id": "schism:chill",
+            "ticks": 60,
+            "level": 2
+        }
+    }
+}

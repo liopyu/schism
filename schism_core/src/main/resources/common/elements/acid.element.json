@@ -1,0 +1,16 @@
+{
+    "color": "0x76FF03",
+    "vis_polarisations": [
+        "expansion",
+        "inundation"
+    ],
+    "fusion_components": [
+        "fire",
+        "water"
+    ],
+    "particle_type_id": "schism:acid",
+    "particle_block_id": "",
+    "particle_force": 0.25,
+    "particle_offset": 0.25,
+    "sound": "schism:element.acid"
+}

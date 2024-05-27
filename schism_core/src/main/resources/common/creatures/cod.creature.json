@@ -1,0 +1,20 @@
+{
+    "entity_id": "minecraft:cod",
+    "creature_type": "cod",
+    "realm": "overworld",
+    "creature_roles": [
+        "animal"
+    ],
+    "base_element": "water",
+    "resist_elements": [
+
+    ],
+    "weakness_elements": [
+
+    ],
+    "stats_per_level": {
+        "health": 0.1,
+        "attack": 0.2,
+        "defense": 0.01
+    }
+}

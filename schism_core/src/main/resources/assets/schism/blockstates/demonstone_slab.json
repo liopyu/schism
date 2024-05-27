@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "schism:block/demonstone_slab" },
+        "type=top": { "model": "schism:block/demonstone_slab_top" },
+        "type=double": { "model": "schism:block/demonstone_slab_double" }
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "schism:desertstone_brick",
+    "count": 4
+  },
+  "pattern": [
+    "BB",
+    "BB"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "schism:desertstone"
+    }
+  }
+}

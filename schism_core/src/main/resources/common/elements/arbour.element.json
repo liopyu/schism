@@ -1,0 +1,16 @@
+{
+    "color": "0x195700",
+    "vis_polarisations": [
+        "inundation",
+        "compression"
+    ],
+    "fusion_components": [
+        "water",
+        "earth"
+    ],
+    "particle_type_id": "schism:arbour",
+    "particle_block_id": "",
+    "particle_force": 1,
+    "particle_offset": 0.25,
+    "sound": "schism:element.arbour"
+}

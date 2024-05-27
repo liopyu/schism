@@ -1,0 +1,12 @@
+{
+    "color": "0x99FFBB",
+    "beneficial": true,
+    "detrimental": false,
+    "group": "boon",
+    "effect_actions": {
+        "healing_taken": {
+            "type": "healing_taken",
+            "multiply": 1.5
+        }
+    }
+}

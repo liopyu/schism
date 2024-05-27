@@ -1,0 +1,38 @@
+{
+    "properties": {
+        "creative_mode_tab": "items",
+        "creative_mode_icon": "",
+        "stack_size": 16,
+        "durability": 0,
+        "container_item_id": "",
+        "rarity": "uncommon",
+        "fire_resistant": false,
+        "no_repair": true
+    },
+    "behavior": {
+        "cooldown": 1200,
+        "experience": 0.35,
+        "use_animation": "bow",
+        "use_ticks": 64,
+        "use_continuous": false,
+        "use_cost": 1,
+        "inventory_ticks": 0,
+        "fuel_time": 0
+    },
+    "item_actions": {
+        "testing": {
+            "type": "altar",
+            "ritual": "tribute",
+            "area": 4,
+            "altars": [
+                "uvhash_shrine_small"
+            ],
+            "on_self_use": true,
+            "on_target_use": false,
+            "on_hit": false,
+            "on_craft": false,
+            "on_inventory_tick": false,
+            "on_block_ids": []
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "color": "0xDEDEFF",
+    "beneficial": true,
+    "detrimental": false,
+    "group": "boon",
+    "effect_actions": {
+        "environment": {
+            "type": "environment",
+            "effect": "thaw",
+            "ticks": 0
+        }
+    }
+}

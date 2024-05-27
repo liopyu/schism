@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "schism:lush_crystal"
+  },
+  "ingredients": [
+    {
+      "item": "schism:lushstone"
+    },
+    {
+      "item": "minecraft:glowstone"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

@@ -1,0 +1,16 @@
+{
+    "color": "0x9E9E9E",
+    "vis_polarisations": [
+        "compression",
+        "entropy"
+    ],
+    "fusion_components": [
+        "earth",
+        "chaos"
+    ],
+    "particle_type_id": "minecraft:ash",
+    "particle_block_id": "",
+    "particle_force": 1,
+    "particle_offset": 0.25,
+    "fallback": true
+}

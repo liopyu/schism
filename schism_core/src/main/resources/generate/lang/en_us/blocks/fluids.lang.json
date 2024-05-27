@@ -1,0 +1,20 @@
+{
+    "block.schism.acid": "Acid",
+    "block.schism.acid.description": "A fluid that dissolves defenses.",
+    "block.schism.blood": "Blood",
+    "block.schism.blood.description": "A gruesome mixture of flesh and blood.",
+    "block.schism.ooze": "Ooze",
+    "block.schism.ooze.description": "A deadly freezing gel.",
+    "block.schism.poison": "Poison",
+    "block.schism.poison.description": "A poisonous fluid.",
+    "block.schism.veshoney": "Veshoney",
+    "block.schism.veshoney.description": "A thick sticky substance created by giant wasp-like insects.",
+    "block.schism.warded_acid": "Warded Acid",
+    "block.schism.warded_acid.description": "A fluid that dissolves defenses, enchanted with a protective ward.",
+    "block.schism.warded_lava": "Warded Lava",
+    "block.schism.warded_lava.description": "Molten rock and metal, enchanted with a protective ward.",
+    "block.schism.warded_ooze": "Warded Ooze",
+    "block.schism.warded_ooze.description": "A deadly freezing gel, enchanted with a protective ward.",
+    "block.schism.warded_poison": "Warded Poison",
+    "block.schism.warded_poison.description": "A poisonous fluid, enchanted with a protective ward."
+}

@@ -1,0 +1,8 @@
+{
+    "parent": "block/inner_stairs",
+    "textures": {
+        "bottom": "schism:block/demonstone_tile",
+        "top": "schism:block/demonstone_tile",
+        "side": "schism:block/demonstone_tile"
+    }
+}

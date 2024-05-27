@@ -1,0 +1,46 @@
+{
+    "properties": {
+        "creative_mode_tab": "blocks",
+        "creative_mode_icon": "",
+        "type": "fluid",
+        "material": "water",
+        "has_collision": false,
+        "sound_type": "slime_block",
+        "destroy_time": 0,
+        "explosion_resistance": 100,
+        "light_emission": 10,
+        "friction": 0.6,
+        "speed_factor": 1,
+        "jump_factor": 1,
+        "tool_for_drops": true,
+        "tick_random": true
+    },
+    "block_actions": {
+        "destroy_items": {
+            "type": "kill",
+            "items": true,
+            "experience_orbs": true
+        },
+        "damage": {
+            "type": "damage",
+            "element": "acid",
+            "damage": 1,
+            "tick_rate": 20
+        },
+        "effect": {
+            "type": "effect",
+            "effect_id": "schism:penetration",
+            "ticks": 100,
+            "level": 1
+        }
+    },
+    "fluid": {
+        "color": "0x009F9F",
+        "density": 3000,
+        "viscosity": 3000,
+        "temperature": 20,
+        "luminosity": 10,
+        "multiply": false,
+        "tick_rate": 2
+    }
+}
