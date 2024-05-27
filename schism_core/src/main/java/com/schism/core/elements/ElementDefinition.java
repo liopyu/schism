@@ -1,6 +1,8 @@
 package com.schism.core.elements;
 
 import com.schism.core.database.*;
+import com.schism.core.database.registryobjects.BlockRegistryObject;
+import com.schism.core.database.registryobjects.SoundRegistryObject;
 import com.schism.core.resolvers.SoundEventResolver;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.sounds.SoundEvent;
@@ -17,12 +19,12 @@ public class ElementDefinition extends AbstractDefinition
     protected List<String> visPolarisations;
     protected CachedList<ElementDefinition> fusionComponents;
 
-    protected CachedRegistryObject<ParticleType<?>> particleType;
-    protected CachedRegistryObject<Block> particleBlock;
+    protected BlockRegistryObject<ParticleType<?>> particleType;
+    protected BlockRegistryObject<Block> particleBlock;
     protected float particleForce;
     protected float particleOffset;
 
-    protected CachedRegistryObject<SoundEvent> cachedSoundEvent;
+    protected SoundRegistryObject<SoundEvent> cachedSoundEvent;
 
     /**
      * Element definitions hold information about elements.
@@ -50,8 +52,8 @@ public class ElementDefinition extends AbstractDefinition
         this.fusionComponents = new CachedList<>(dataStore.listProp("fusion_components").stream()
                 .map(entry -> new CachedDefinition<>(entry.stringValue(), ElementRepository.get())).toList());
 
-        this.particleType = new CachedRegistryObject<>(dataStore.stringProp("particle_type_id"), () -> ForgeRegistries.PARTICLE_TYPES);
-        this.particleBlock = new CachedRegistryObject<>(dataStore.stringProp("particle_block_id"), () -> ForgeRegistries.BLOCKS);
+        this.particleType = new BlockRegistryObject<>(dataStore.stringProp("particle_type_id"), () -> ForgeRegistries.PARTICLE_TYPES);
+        this.particleBlock = new BlockRegistryObject<>(dataStore.stringProp("particle_block_id"), () -> ForgeRegistries.BLOCKS);
         this.particleForce = dataStore.floatProp("particle_force");
         this.particleOffset = dataStore.floatProp("particle_offset");
 

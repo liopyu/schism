@@ -2,19 +2,15 @@ package com.schism.core.client.renderers;
 
 import com.schism.core.blocks.BlockRepository;
 import com.schism.core.particles.ParticleRepository;
-import com.schism.core.projectiles.ProjectileEntity;
 import com.schism.core.projectiles.ProjectileRepository;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.EntityRenderer;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.ParticleFactoryRegisterEvent;
+import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import org.jetbrains.annotations.NotNull;
 
 public class RendererRegister
 {
@@ -62,7 +58,7 @@ public class RendererRegister
      */
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
-    public void onParticleFactoryRegister(ParticleFactoryRegisterEvent event)
+    public void onParticleFactoryRegister(RegisterParticleProvidersEvent event)
     {
         ParticleRepository.get().definitions().forEach(particleDefinition -> Minecraft.getInstance().particleEngine.register(particleDefinition.particleType(), DefinedParticleProvider::new));
     }

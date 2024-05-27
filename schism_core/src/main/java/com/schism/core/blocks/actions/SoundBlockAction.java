@@ -1,8 +1,9 @@
 package com.schism.core.blocks.actions;
 
 import com.schism.core.blocks.BlockDefinition;
-import com.schism.core.database.CachedRegistryObject;
+import com.schism.core.database.registryobjects.BlockRegistryObject;
 import com.schism.core.database.DataStore;
+import com.schism.core.database.registryobjects.SoundRegistryObject;
 import com.schism.core.resolvers.SoundEventResolver;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
@@ -16,7 +17,7 @@ import java.util.Random;
 
 public class SoundBlockAction extends AbstractBlockAction
 {
-    protected final CachedRegistryObject<SoundEvent> cachedSoundEvent;
+    protected final SoundRegistryObject<SoundEvent> cachedSoundEvent;
     protected final int tickInterval;
     protected final float chance;
     protected final float volumeMin;

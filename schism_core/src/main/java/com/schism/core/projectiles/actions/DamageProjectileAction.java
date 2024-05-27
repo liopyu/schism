@@ -61,7 +61,7 @@ public class DamageProjectileAction extends AbstractProjectileAction
     {
         DamageSource damageSource = new DamageSource(this.definition().subject());
         if (!this.cachedElements.get().isEmpty()) {
-            damageSource = new ElementsEntityDamageSource(this.cachedElements.get(), projectileEntity, projectileEntity.getOwner());
+            damageSource = livingEntity.level().damageSources().indirectMagic(this.cachedElements.get(), projectileEntity, projectileEntity.getOwner());
         }
         livingEntity.hurt(damageSource, this.damage);
     }

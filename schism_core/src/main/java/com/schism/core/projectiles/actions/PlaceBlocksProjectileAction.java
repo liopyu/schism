@@ -1,7 +1,7 @@
 package com.schism.core.projectiles.actions;
 
 import com.schism.core.blocks.types.FireBlock;
-import com.schism.core.database.CachedRegistryObject;
+import com.schism.core.database.registryobjects.BlockRegistryObject;
 import com.schism.core.database.DataStore;
 import com.schism.core.projectiles.ProjectileDefinition;
 import com.schism.core.projectiles.ProjectileEntity;
@@ -17,7 +17,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class PlaceBlocksProjectileAction extends AbstractProjectileAction
 {
-    protected final CachedRegistryObject<Block> cachedBlock;
+    protected final BlockRegistryObject<Block> cachedBlock;
     protected final int radius;
     protected final int height;
     protected final boolean replaceSoftBlocks;
@@ -28,7 +28,7 @@ public class PlaceBlocksProjectileAction extends AbstractProjectileAction
     {
         super(definition, dataStore);
 
-        this.cachedBlock = new CachedRegistryObject<>(dataStore.stringProp("block_id"), () -> ForgeRegistries.BLOCKS);
+        this.cachedBlock = new BlockRegistryObject<>(dataStore.stringProp("block_id"), () -> ForgeRegistries.BLOCKS);
         this.radius = dataStore.intProp("radius");
         this.height = dataStore.intProp("height");
         this.replaceSoftBlocks = dataStore.booleanProp("replace_soft_blocks");

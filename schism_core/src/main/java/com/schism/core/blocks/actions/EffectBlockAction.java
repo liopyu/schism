@@ -1,7 +1,7 @@
 package com.schism.core.blocks.actions;
 
 import com.schism.core.blocks.BlockDefinition;
-import com.schism.core.database.CachedRegistryObject;
+import com.schism.core.database.registryobjects.BlockRegistryObject;
 import com.schism.core.database.DataStore;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffect;
@@ -14,7 +14,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class EffectBlockAction extends AbstractBlockAction
 {
-    protected final CachedRegistryObject<MobEffect> cachedEffect;
+    protected final BlockRegistryObject<MobEffect> cachedEffect;
     protected final int ticks;
     protected final int level;
 
@@ -22,7 +22,7 @@ public class EffectBlockAction extends AbstractBlockAction
     {
         super(definition, dataStore);
 
-        this.cachedEffect = new CachedRegistryObject<>(dataStore.stringProp("effect_id"), () -> ForgeRegistries.MOB_EFFECTS);
+        this.cachedEffect = new BlockRegistryObject<>(dataStore.stringProp("effect_id"), () -> ForgeRegistries.MOB_EFFECTS);
         this.ticks = dataStore.intProp("ticks");
         this.level = dataStore.intProp("level");
     }

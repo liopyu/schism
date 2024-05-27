@@ -1,7 +1,7 @@
 package com.schism.core.blocks.actions;
 
 import com.schism.core.blocks.BlockDefinition;
-import com.schism.core.database.CachedRegistryObject;
+import com.schism.core.database.registryobjects.BlockRegistryObject;
 import com.schism.core.database.DataStore;
 import com.schism.core.particles.DefinedParticleType;
 import com.schism.core.util.Vec3;
@@ -18,8 +18,8 @@ import java.util.Random;
 
 public class ParticlesBlockAction extends AbstractBlockAction
 {
-    protected CachedRegistryObject<ParticleType<?>> cachedParticleType;
-    protected CachedRegistryObject<Block> cachedParticleBlock;
+    protected BlockRegistryObject<ParticleType<?>> cachedParticleType;
+    protected BlockRegistryObject<Block> cachedParticleBlock;
     protected final int intervalTicks;
     protected final float chance;
     protected final float offsetMin;
@@ -33,8 +33,8 @@ public class ParticlesBlockAction extends AbstractBlockAction
     {
         super(definition, dataStore);
 
-        this.cachedParticleType = new CachedRegistryObject<>(dataStore.stringProp("type_id"), () -> ForgeRegistries.PARTICLE_TYPES);
-        this.cachedParticleBlock = new CachedRegistryObject<>(dataStore.stringProp("block_id"), () -> ForgeRegistries.BLOCKS);
+        this.cachedParticleType = new BlockRegistryObject<>(dataStore.stringProp("type_id"), () -> ForgeRegistries.PARTICLE_TYPES);
+        this.cachedParticleBlock = new BlockRegistryObject<>(dataStore.stringProp("block_id"), () -> ForgeRegistries.BLOCKS);
         this.intervalTicks = dataStore.intProp("interval_ticks");
         this.chance = dataStore.floatProp("chance");
         this.offsetMin = dataStore.floatProp("offset_min");

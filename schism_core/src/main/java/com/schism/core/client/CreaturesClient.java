@@ -2,15 +2,17 @@ package com.schism.core.client;
 
 import com.schism.core.creatures.Creatures;
 import com.schism.core.creatures.ICreature;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.FormattedText;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.RenderNameplateEvent;
+import net.minecraftforge.client.event.RenderNameTagEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
+import java.awt.*;
 import java.util.Optional;
 
 public class CreaturesClient
@@ -35,7 +37,7 @@ public class CreaturesClient
      */
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
-    public void onRenderNameplate(RenderNameplateEvent event)
+    public void onRenderNameplate(RenderNameTagEvent event)
     {
         if (event.isCanceled() || !(event.getEntity() instanceof LivingEntity livingEntity)) {
             return;
@@ -43,7 +45,7 @@ public class CreaturesClient
 
         Optional<ICreature> creature = Creatures.get().getCreature(livingEntity);
         if (creature.isPresent()) {
-            MutableComponent component = new TextComponent("").append(event.getContent());
+            MutableComponent component = Component.literal("").append(event.getContent());
             if (creature.get().modifyNameTag(component)) {
                 event.setResult(Event.Result.ALLOW);
             }

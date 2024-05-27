@@ -5,8 +5,8 @@ import com.schism.core.database.DataStore;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.registries.*;
 
 public class BlockRepository extends AbstractRepository<BlockDefinition>
 {
@@ -66,9 +66,11 @@ public class BlockRepository extends AbstractRepository<BlockDefinition>
      * @param event The block registry event.
      */
     @SubscribeEvent
-    public void onBlocksRegistry(final RegistryEvent.Register<Block> event)
+    public void onBlocksRegistry(final NewRegistryEvent event)
     {
-        this.definitions.values().stream().sorted().forEach(blockDefinition -> blockDefinition.registerBlock(event.getRegistry()));
+        RegistryBuilder<Block> builder = new RegistryBuilder<>();
+        var registry = event.create(builder).get();
+        this.definitions.values().stream().sorted().forEach(blockDefinition -> blockDefinition.registerBlock(registry));
     }
 
     /**
@@ -76,9 +78,11 @@ public class BlockRepository extends AbstractRepository<BlockDefinition>
      * @param event The fluid registry event.
      */
     @SubscribeEvent
-    public void onFluidsRegistry(final RegistryEvent.Register<Fluid> event)
+    public void onFluidsRegistry(final NewRegistryEvent event)
     {
-        this.definitions.values().stream().sorted().forEach(blockDefinition -> blockDefinition.registerFluid(event.getRegistry()));
+        RegistryBuilder<net.minecraft.world.level.material.Fluid> builder = new RegistryBuilder<>();
+        var registry = event.create(builder).get();
+        this.definitions.values().stream().sorted().forEach(blockDefinition -> blockDefinition.registerFluid(registry));
     }
 
     /**
@@ -86,9 +90,11 @@ public class BlockRepository extends AbstractRepository<BlockDefinition>
      * @param event The item registry event.
      */
     @SubscribeEvent
-    public void onItemsRegistry(final RegistryEvent.Register<Item> event)
+    public void onItemsRegistry(final NewRegistryEvent event)
     {
-        this.definitions.values().stream().sorted().forEach(blockDefinition -> blockDefinition.registerItem(event.getRegistry()));
+        RegistryBuilder<Item> builder = new RegistryBuilder<>();
+        var registry = event.create(builder).get();
+        this.definitions.values().stream().sorted().forEach(blockDefinition -> blockDefinition.registerItem(registry));
     }
 
     /**
@@ -96,8 +102,10 @@ public class BlockRepository extends AbstractRepository<BlockDefinition>
      * @param event The feature registry event.
      */
     @SubscribeEvent
-    public void onFeatureRegistry(final RegistryEvent.Register<Feature<?>> event)
+    public void onFeatureRegistry(final NewRegistryEvent event)
     {
-        this.definitions.values().stream().sorted().forEach(blockDefinition -> blockDefinition.registerFeatures(event.getRegistry()));
+        RegistryBuilder<Feature<?>> builder = new RegistryBuilder<>();
+        var registry = event.create(builder).get();
+        this.definitions.values().stream().sorted().forEach(blockDefinition -> blockDefinition.registerFeatures(registry));
     }
 }

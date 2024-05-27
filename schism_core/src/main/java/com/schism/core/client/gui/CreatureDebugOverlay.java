@@ -1,5 +1,7 @@
 package com.schism.core.client.gui;
 
+import com.mojang.blaze3d.platform.Window;
+import com.mojang.blaze3d.vertex.PoseStack;
 import com.schism.core.Log;
 import com.schism.core.creatures.*;
 import com.schism.core.elements.ElementDefinition;
@@ -7,6 +9,7 @@ import com.schism.core.gods.PantheonDefinition;
 import com.schism.core.gods.Piety;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -14,9 +17,12 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.client.event.RenderGuiOverlayEvent;
+import net.minecraftforge.client.gui.overlay.NamedGuiOverlay;
+import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class CreatureDebugOverlay
@@ -86,15 +92,35 @@ public class CreatureDebugOverlay
         this.creatureDefinition = null;
         this.creature = null;
     }
+    public static class Text extends RenderGuiOverlayEvent.Pre {
+        private final ArrayList<String> left;
+        private final ArrayList<String> right;
 
+        public Text(Window window, GuiGraphics guiGraphics, float partialTick, NamedGuiOverlay overlay,ArrayList<String> left, ArrayList<String> right) {
+            super(window, guiGraphics, partialTick, overlay);
+            this.left = left;
+            this.right = right;
+        }
+
+
+        public ArrayList<String> getLeft() {
+            return this.left;
+        }
+
+        public ArrayList<String> getRight() {
+            return this.right;
+        }
+    }
     /**
      * Called during the game gui overlay text event.
      * @param event The overlay event.
      */
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
-    public void onGameOverlayText(RenderGameOverlayEvent.Text event)
+    public void onGameOverlayText(Text event)
     {
+        NamedGuiOverlay overlay = VanillaGuiOverlay.TITLE_TEXT.type();
+        if (event.getOverlay() != overlay) return;
         if (this.livingEntity == null) {
             return;
         }
@@ -103,10 +129,11 @@ public class CreatureDebugOverlay
             return;
         }
 
+
         event.getLeft().add("");
         event.getLeft().add("--0=====[] Creature Tracker []=====0--");
         event.getLeft().add(livingEntity.getUUID().toString());
-        event.getLeft().add("Entity: " + livingEntity.getType().getRegistryName());
+        event.getLeft().add("Entity: " + livingEntity.getType());
         event.getLeft().add("Network ID: " + livingEntity.getId());
 
         if (this.creatureDefinition == null) {

@@ -11,7 +11,6 @@ import com.schism.core.creatures.ICreature;
 import com.schism.core.resolvers.EffectResolver;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import com.schism.core.util.Vec2;

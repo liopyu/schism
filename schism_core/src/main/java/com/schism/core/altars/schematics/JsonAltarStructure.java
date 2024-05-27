@@ -1,7 +1,7 @@
 package com.schism.core.altars.schematics;
 
 import com.schism.core.database.CachedObject;
-import com.schism.core.database.CachedRegistryObject;
+import com.schism.core.database.registryobjects.BlockRegistryObject;
 import com.schism.core.database.DataStore;
 import com.schism.core.util.Vec3;
 import net.minecraft.core.BlockPos;
@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 public class JsonAltarStructure extends AbstractAltarStructure
 {
-    protected final Map<Character, List<CachedRegistryObject<Block>>> blockMap;
+    protected final Map<Character, List<BlockRegistryObject<Block>>> blockMap;
     protected final Map<Vec3, Character> blockKeys;
     protected final Vec3 size;
 
@@ -26,7 +26,7 @@ public class JsonAltarStructure extends AbstractAltarStructure
     {
         this.blockMap = dataStore.mapProp("block_map").entrySet().stream()
                 .collect(Collectors.toMap(entrySet -> entrySet.getKey().toCharArray()[0], entrySet -> entrySet.getValue().arrayList().stream()
-                        .map(blockIdData -> new CachedRegistryObject<>(blockIdData.stringValue(), () -> ForgeRegistries.BLOCKS)).toList()
+                        .map(blockIdData -> new BlockRegistryObject<>(blockIdData.stringValue(), () -> ForgeRegistries.BLOCKS)).toList()
                 ));
 
         this.blockKeys = new HashMap<>();
@@ -55,9 +55,9 @@ public class JsonAltarStructure extends AbstractAltarStructure
     }
 
     @Override
-    public Map<Vec3, List<CachedRegistryObject<Block>>> layout()
+    public Map<Vec3, List<BlockRegistryObject<Block>>> layout()
     {
-        Map<Vec3, List<CachedRegistryObject<Block>>> layout = new HashMap<>();
+        Map<Vec3, List<BlockRegistryObject<Block>>> layout = new HashMap<>();
         this.blockKeys.forEach((key, value) -> layout.put(key, this.blockMap.get(value)));
         return layout;
     }

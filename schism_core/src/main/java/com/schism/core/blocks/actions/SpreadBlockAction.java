@@ -2,7 +2,7 @@ package com.schism.core.blocks.actions;
 
 import com.schism.core.blocks.BlockDefinition;
 import com.schism.core.blocks.types.FireBlock;
-import com.schism.core.database.CachedRegistryObject;
+import com.schism.core.database.registryobjects.BlockRegistryObject;
 import com.schism.core.database.DataStore;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -22,7 +22,7 @@ public class SpreadBlockAction extends AbstractBlockAction
     protected final float spreadChance;
     protected final boolean spreadFlammable;
     protected final List<String> spreadBlockIds;
-    protected final CachedRegistryObject<Block> alternateBlock;
+    protected final BlockRegistryObject<Block> alternateBlock;
     protected final float alternateBlockChance;
 
     public SpreadBlockAction(BlockDefinition definition, DataStore dataStore)
@@ -32,7 +32,7 @@ public class SpreadBlockAction extends AbstractBlockAction
         this.spreadChance = dataStore.floatProp("spread_chance");
         this.spreadFlammable = dataStore.booleanProp("spread_flammable");
         this.spreadBlockIds = dataStore.listProp("spread_block_ids").stream().map(DataStore::stringValue).collect(Collectors.toList());
-        this.alternateBlock = new CachedRegistryObject<>(dataStore.stringProp("alternate_block_id"), () -> ForgeRegistries.BLOCKS);
+        this.alternateBlock = new BlockRegistryObject<>(dataStore.stringProp("alternate_block_id"), () -> ForgeRegistries.BLOCKS);
         this.alternateBlockChance = dataStore.floatProp("alternate_block_chance");
     }
 

@@ -131,7 +131,7 @@ public class CreatureOverlay
      */
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
-    public void onGameOverlayText(ScreenEvent.DrawScreenEvent event)
+    public void onGameOverlayText(ScreenEvent.Render event)
     {
         if (this.layout == null || !(event.getScreen() instanceof InventoryScreen inventoryScreen)) {
             return;
@@ -161,7 +161,7 @@ public class CreatureOverlay
         this.widgetState.mouseReleased = KeyHandler.get().widgetState.mouseReleased;
 
         this.drawHelper.setScreen(inventoryScreen);
-        PoseStack poseStack = event.getPoseStack();
+        PoseStack poseStack = event.getGuiGraphics().pose();
         this.layoutPlacement.setPosition(new Vec3(6, (float)inventoryScreen.height / 2, 0));
         this.layout.draw(poseStack, this.widgetState, true);
 

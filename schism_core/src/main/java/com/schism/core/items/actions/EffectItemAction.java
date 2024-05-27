@@ -1,6 +1,6 @@
 package com.schism.core.items.actions;
 
-import com.schism.core.database.CachedRegistryObject;
+import com.schism.core.database.registryobjects.BlockRegistryObject;
 import com.schism.core.database.DataStore;
 import com.schism.core.items.ItemDefinition;
 import net.minecraft.world.InteractionResultHolder;
@@ -13,7 +13,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class EffectItemAction extends AbstractItemAction
 {
-    protected final CachedRegistryObject<MobEffect> cachedEffect;
+    protected final BlockRegistryObject<MobEffect> cachedEffect;
     protected final int level;
     protected final int duration;
 
@@ -21,7 +21,7 @@ public class EffectItemAction extends AbstractItemAction
     {
         super(definition, dataStore);
 
-        this.cachedEffect = new CachedRegistryObject<>(dataStore.stringProp("effect_id"), () -> ForgeRegistries.MOB_EFFECTS);
+        this.cachedEffect = new BlockRegistryObject<>(dataStore.stringProp("effect_id"), () -> ForgeRegistries.MOB_EFFECTS);
         this.level = dataStore.intProp("level");
         this.duration = dataStore.intProp("duration");
     }

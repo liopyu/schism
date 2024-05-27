@@ -8,11 +8,11 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
-import net.minecraftforge.event.entity.EntityLeaveWorldEvent;
+import net.minecraftforge.event.entity.EntityLeaveLevelEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.entity.living.PotionEvent;
+import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -54,7 +54,7 @@ public class Creatures
      */
     public Optional<ICreature> getCreature(LivingEntity livingEntity)
     {
-        Map<LivingEntity, LazyOptional<ICreature>> cache = livingEntity.getLevel().isClientSide() ? this.clientCache : this.serverCache;
+        Map<LivingEntity, LazyOptional<ICreature>> cache = livingEntity.level().isClientSide() ? this.clientCache : this.serverCache;
         if (cache.containsKey(livingEntity)) {
             return cache.get(livingEntity).resolve();
         }
@@ -84,13 +84,13 @@ public class Creatures
      */
     public void removeProvider(LivingEntity livingEntity)
     {
-        Map<LivingEntity, CreatureCapabilityProvider> providers = livingEntity.getLevel().isClientSide() ? this.clientProviders : this.serverProviders;
+        Map<LivingEntity, CreatureCapabilityProvider> providers = livingEntity.level().isClientSide() ? this.clientProviders : this.serverProviders;
         if (providers.containsKey(livingEntity)) {
             providers.get(livingEntity).lazyCapability().invalidate();
             providers.remove(livingEntity);
         }
 
-        Map<LivingEntity, LazyOptional<ICreature>> cache = livingEntity.getLevel().isClientSide() ? this.clientCache : this.serverCache;
+        Map<LivingEntity, LazyOptional<ICreature>> cache = livingEntity.level().isClientSide() ? this.clientCache : this.serverCache;
         cache.remove(livingEntity);
     }
 
@@ -99,9 +99,9 @@ public class Creatures
      * @param event The living entity update tick event.
      */
     @SubscribeEvent
-    public void onLivingUpdate(LivingEvent.LivingUpdateEvent event)
+    public void onLivingUpdate(LivingEvent.LivingTickEvent event)
     {
-        this.getCreature(event.getEntityLiving()).ifPresent(ICreature::tick);
+        this.getCreature(event.getEntity()).ifPresent(ICreature::tick);
     }
 
     /**
@@ -111,23 +111,23 @@ public class Creatures
     @SubscribeEvent
     public void onEntityHurt(LivingHurtEvent event)
     {
-        if (event.isCanceled() || event.getEntityLiving() == null) {
+        if (event.isCanceled() || event.getEntity() == null) {
             return;
         }
 
         float amount = event.getAmount();
-        List<ElementDefinition> damageElements = ElementRepository.get().damageElements(event.getSource(), event.getEntityLiving().getLevel(), event.getEntityLiving().blockPosition());
+        List<ElementDefinition> damageElements = ElementRepository.get().damageElements(event.getSource(), event.getEntity().level(), event.getEntity().blockPosition());
 
         // Damage Dealt:
         if (event.getSource().getEntity() instanceof LivingEntity attackingEntity) {
             ICreature attackingCreature = this.getCreature(attackingEntity).orElse(null);
             if (attackingCreature != null) {
-                amount = attackingCreature.onDamage(amount, event.getSource(), damageElements, event.getEntityLiving());
+                amount = attackingCreature.onDamage(amount, event.getSource(), damageElements, event.getEntity());
             }
         }
 
         // Damage Taken:
-        ICreature creature = this.getCreature(event.getEntityLiving()).orElse(null);
+        ICreature creature = this.getCreature(event.getEntity()).orElse(null);
         if (creature != null) {
             amount = creature.onHurt(amount, event.getSource(), damageElements);
         }
@@ -136,7 +136,7 @@ public class Creatures
         if (amount <= 0) {
             event.setCanceled(true);
             if (amount < 0) {
-                event.getEntityLiving().heal(-amount);
+                event.getEntity().heal(-amount);
             }
         }
         event.setAmount(amount);
@@ -149,19 +149,19 @@ public class Creatures
     @SubscribeEvent
     public void onEntityDeath(LivingDeathEvent event)
     {
-        if (event.isCanceled() || event.getEntityLiving() == null) {
+        if (event.isCanceled() || event.getEntity() == null) {
             return;
         }
 
-        List<ElementDefinition> damageElements = ElementRepository.get().damageElements(event.getSource(), event.getEntityLiving().getLevel(), event.getEntityLiving().blockPosition());
+        List<ElementDefinition> damageElements = ElementRepository.get().damageElements(event.getSource(), event.getEntity().level(), event.getEntity().blockPosition());
 
         // On Kill:
         if (event.getSource().getEntity() instanceof LivingEntity attackingEntity) {
-            this.getCreature(attackingEntity).ifPresent(attackingCreature -> attackingCreature.onKill(event.getSource(), damageElements, event.getEntityLiving()));
+            this.getCreature(attackingEntity).ifPresent(attackingCreature -> attackingCreature.onKill(event.getSource(), damageElements, event.getEntity()));
         }
 
         // On Death:
-        this.getCreature(event.getEntityLiving()).ifPresent(creature -> creature.onDeath(event.getSource(), damageElements));
+        this.getCreature(event.getEntity()).ifPresent(creature -> creature.onDeath(event.getSource(), damageElements));
     }
 
     /**
@@ -169,18 +169,18 @@ public class Creatures
      * @param event The entity effect applicable event.
      */
     @SubscribeEvent
-    public void onEntityEffectApplicable(PotionEvent.PotionApplicableEvent event)
+    public void onEntityEffectApplicable(MobEffectEvent.Applicable event)
     {
-        if(event.isCanceled() || event.getEntityLiving() == null) {
+        if(event.isCanceled() || event.getEntity() == null) {
             return;
         }
 
-        ICreature creature = this.getCreature(event.getEntityLiving()).orElse(null);
+        ICreature creature = this.getCreature(event.getEntity()).orElse(null);
         if (creature == null) {
             return;
         }
 
-        if (!creature.effectApplicable(event.getPotionEffect())) {
+        if (!creature.effectApplicable(event.getEffectInstance())) {
             event.setResult(Event.Result.DENY);
         }
     }
@@ -190,7 +190,7 @@ public class Creatures
      * @param event The entity leave level event.
      */
     @SubscribeEvent
-    public void onEntityLeaveLevel(EntityLeaveWorldEvent event)
+    public void onEntityLeaveLevel(EntityLeaveLevelEvent event)
     {
         if (!(event.getEntity() instanceof LivingEntity livingEntity)) {
             return;
@@ -207,7 +207,7 @@ public class Creatures
     {
         Optional<ICreature> optionalOriginalCreature = this.getCreature(event.getOriginal());
         if (optionalOriginalCreature.isPresent()) {
-            Optional<ICreature> optionalCreature = this.getCreature(event.getPlayer());
+            Optional<ICreature> optionalCreature = this.getCreature(event.getEntity());
             optionalCreature.ifPresent(creature -> creature.piety().deserializeNBT(optionalOriginalCreature.get().piety().serializeNBT()));
         }
         this.removeProvider(event.getOriginal());

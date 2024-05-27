@@ -11,7 +11,6 @@ import com.schism.core.util.Vec2;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import com.schism.core.util.Vec3;
@@ -46,15 +45,15 @@ public class IndexPage extends AbstractPage
 
         this.text.clear();
 
-        Component title = new TextComponent(Schism.MOD_NAME + " Alpha").withStyle(ChatFormatting.BOLD);
+        Component title = Component.literal(Schism.MOD_NAME + " Alpha").withStyle(ChatFormatting.BOLD);
         this.text.add(title, true, true, true);
 
-        Component info = new TextComponent("Schism is still under early development, test away and enjoy!");
+        Component info = Component.literal("Schism is still under early development, test away and enjoy!");
         this.text.add(info, true, false, true);
 
         // Stats:
         if (this.creature != null) {
-            this.text.add(new TextComponent(""), true, false, true);
+            this.text.add(Component.literal(""), true, false, true);
 
             MutableComponent stats = Component.translatable(Schism.NAMESPACE + ".journal.title.stats").withStyle(ChatFormatting.BOLD);
             this.text.add(stats, true, false, true);

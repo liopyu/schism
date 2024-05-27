@@ -52,7 +52,7 @@ public class DamageBlockAction extends AbstractBlockAction
 
         DamageSource damageSource = new DamageSource(this.definition().subject());
         if (!this.cachedElements.get().isEmpty()) {
-            damageSource = new ElementsDamageSource(this.cachedElements.get()).bypassArmor();
+            damageSource = level.damageSources().generic();
         }
         entity.hurt(damageSource, this.damage);
 

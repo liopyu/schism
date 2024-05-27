@@ -8,7 +8,7 @@ import com.schism.core.client.gui.WidgetState;
 import com.schism.core.database.AbstractDefinition;
 import com.schism.core.util.Vec2;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 
 public class NotificationWidget extends AbstractWidget
@@ -54,7 +54,7 @@ public class NotificationWidget extends AbstractWidget
 
         Component title = Component.translatable("schism.notification." + this.definition.type() + "." + this.event);
         Component subject = Component.translatable("schism." + this.definition.type() + "." + this.definition.subject());
-        TextComponent value = new TextComponent(this.value);
+        MutableComponent value = Component.literal(this.value);
 
         int textHeight = this.drawHelper.wrappedHeight(title, textWidth) + 2;
         textHeight += this.drawHelper.wrappedHeight(subject, textWidth) + 2;
@@ -94,7 +94,7 @@ public class NotificationWidget extends AbstractWidget
 
         // Value:
         textTop += 2;
-        TextComponent value = new TextComponent(this.value);
+        MutableComponent value = Component.literal(this.value);
         this.drawHelper.drawTextWrapped(poseStack, value, new Vec2(textLeft, textTop), textWidth, 0xEEDDCC, false);
     }
 }

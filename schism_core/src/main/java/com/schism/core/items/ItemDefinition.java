@@ -2,7 +2,7 @@ package com.schism.core.items;
 
 import com.mojang.datafixers.util.Pair;
 import com.schism.core.database.AbstractDefinition;
-import com.schism.core.database.CachedRegistryObject;
+import com.schism.core.database.registryobjects.BlockRegistryObject;
 import com.schism.core.database.DataStore;
 import com.schism.core.items.actions.AbstractItemAction;
 import net.minecraft.world.effect.MobEffect;
@@ -24,7 +24,7 @@ public class ItemDefinition extends AbstractDefinition
     protected String creativeModeIcon;
     protected int stackSize;
     protected int durability;
-    protected CachedRegistryObject<Item> containerItem;
+    protected BlockRegistryObject<Item> containerItem;
     protected String rarity;
     protected boolean fireResistant;
     protected boolean noRepair;
@@ -36,7 +36,7 @@ public class ItemDefinition extends AbstractDefinition
     protected boolean foodIsMeat;
     protected boolean foodAlwaysEat;
     protected boolean foodFastEat;
-    protected List<Pair<CachedRegistryObject<MobEffect>, Float>> foodEffects;
+    protected List<Pair<BlockRegistryObject<MobEffect>, Float>> foodEffects;
 
     // Behavior:
     protected int cooldown;
@@ -79,7 +79,7 @@ public class ItemDefinition extends AbstractDefinition
         this.creativeModeIcon = dataStore.stringProp("properties.creative_mode_icon");
         this.stackSize = dataStore.intProp("properties.stack_size");
         this.durability = dataStore.intProp("properties.durability");
-        this.containerItem = new CachedRegistryObject<>(dataStore.stringProp("properties.container_item_id"), () -> ForgeRegistries.ITEMS);
+        this.containerItem = new BlockRegistryObject<>(dataStore.stringProp("properties.container_item_id"), () -> ForgeRegistries.ITEMS);
         this.rarity = dataStore.stringProp("properties.rarity");
         this.fireResistant = dataStore.booleanProp("properties.fire_resistant");
         this.noRepair = dataStore.booleanProp("properties.no_repair");
@@ -91,7 +91,7 @@ public class ItemDefinition extends AbstractDefinition
         this.foodAlwaysEat = dataStore.booleanProp("food.always_eat");
         this.foodFastEat = dataStore.booleanProp("food.fast_eat");
         this.foodEffects = dataStore.listProp("food.chance_effect_ids").stream().map(entry -> Pair.of(
-                new CachedRegistryObject<>(entry.stringProp("effect_id"), () -> ForgeRegistries.MOB_EFFECTS),
+                new BlockRegistryObject<>(entry.stringProp("effect_id"), () -> ForgeRegistries.MOB_EFFECTS),
                 entry.floatProp("chance"))).toList();
 
         this.cooldown = dataStore.intProp("behavior.cooldown");

@@ -24,7 +24,7 @@ public class WorshipAltarAction extends AbstractAltarAction
     @Override
     public void onActivate(LivingEntity livingEntity, BlockPos corePosition, String ritual, Entity tributeEntity)
     {
-        if (livingEntity.getLevel().isClientSide() || !ritual.equals(this.ritual)) {
+        if (livingEntity.level().isClientSide() || !ritual.equals(this.ritual)) {
             return;
         }
 

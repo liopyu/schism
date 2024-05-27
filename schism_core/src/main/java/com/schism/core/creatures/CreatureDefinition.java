@@ -1,12 +1,12 @@
 package com.schism.core.creatures;
 
 import com.schism.core.database.*;
+import com.schism.core.database.registryobjects.BlockRegistryObject;
 import com.schism.core.elements.ElementDefinition;
 import com.schism.core.elements.ElementRepository;
 import com.schism.core.lore.RealmDefinition;
 import com.schism.core.lore.RealmRepository;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
 public class CreatureDefinition extends AbstractDefinition
 {
     protected String entityId;
-    protected CachedRegistryObject<EntityType<?>> cachedEntityType;
+    protected BlockRegistryObject<EntityType<?>> cachedEntityType;
     protected CachedDefinition<CreatureTypeDefinition> cachedCreatureType;
     protected CachedDefinition<RealmDefinition> cachedRealm;
     protected CachedList<CreatureRoleDefinition> cachedCreatureRoles;
@@ -48,7 +48,7 @@ public class CreatureDefinition extends AbstractDefinition
         super.update(dataStore);
 
         this.entityId = dataStore.stringProp("entity_id");
-        this.cachedEntityType = new CachedRegistryObject<>(this.entityId, () -> ForgeRegistries.ENTITIES);
+        this.cachedEntityType = new BlockRegistryObject<>(this.entityId, () -> ForgeRegistries.ENTITIES);
         this.cachedCreatureType = new CachedDefinition<>(dataStore.stringProp("creature_type"), CreatureTypeRepository.get());
         this.cachedRealm = new CachedDefinition<>(dataStore.stringProp("realm"), RealmRepository.get());
         this.cachedCreatureRoles = new CachedList<> (dataStore.listProp("creature_roles").stream()
@@ -77,7 +77,7 @@ public class CreatureDefinition extends AbstractDefinition
      * Gets the entity type that this creature definition is for.
      * @return The entity type this creature definition is for.
      */
-    public CachedRegistryObject<EntityType<?>> entityType()
+    public BlockRegistryObject<EntityType<?>> entityType()
     {
         return this.cachedEntityType;
     }

@@ -9,7 +9,7 @@ import com.schism.core.util.Vec2;
 import com.schism.core.util.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -77,10 +77,10 @@ public class Notifications
      */
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
-    public void onGameOverlayText(RenderGameOverlayEvent event)
+    public void onGameOverlayText(RenderGuiOverlayEvent event)
     {
         this.layoutPlacement.setPosition(new Vec3(2, (float)event.getWindow().getGuiScaledHeight() / 2, 0));
-        this.layout.draw(event.getMatrixStack(), this.widgetState.beforeDraw(false, 0, 0), false);
-        this.widgetState.drawTooltip(this.drawHelper, event.getMatrixStack()).afterDraw();
+        this.layout.draw(event.getGuiGraphics().pose(), this.widgetState.beforeDraw(false, 0, 0), false);
+        this.widgetState.drawTooltip(this.drawHelper, event.getGuiGraphics().pose()).afterDraw();
     }
 }

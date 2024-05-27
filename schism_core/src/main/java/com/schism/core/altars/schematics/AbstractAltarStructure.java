@@ -1,6 +1,6 @@
 package com.schism.core.altars.schematics;
 
-import com.schism.core.database.CachedRegistryObject;
+import com.schism.core.database.registryobjects.BlockRegistryObject;
 import com.schism.core.database.DataStore;
 import com.schism.core.util.Vec3;
 import net.minecraft.core.BlockPos;
@@ -36,7 +36,7 @@ public abstract class AbstractAltarStructure
      * Gets a map of block lists by position.
      * @return A map of block lists keyed by position.
      */
-    public abstract Map<Vec3, List<CachedRegistryObject<Block>>> layout();
+    public abstract Map<Vec3, List<BlockRegistryObject<Block>>> layout();
 
     /**
      * Gets the blocks in this structure at the provided position.

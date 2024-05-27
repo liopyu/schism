@@ -3,8 +3,10 @@ package com.schism.core.effects;
 import com.schism.core.AbstractRepository;
 import com.schism.core.database.DataStore;
 import net.minecraft.world.effect.MobEffect;
-import net.minecraftforge.event.RegistryEvent;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.registries.NewRegistryEvent;
+import net.minecraftforge.registries.RegistryBuilder;
 
 public class EffectRepository extends AbstractRepository<EffectDefinition>
 {
@@ -32,11 +34,15 @@ public class EffectRepository extends AbstractRepository<EffectDefinition>
 
     /**
      * Registers effects into Forge.
-     * @param effectRegistryEvent The effect registry event.
+     * @param event The effect registry event.
      */
     @SubscribeEvent
-    public void onEffectsRegistry(final RegistryEvent.Register<MobEffect> effectRegistryEvent)
+    public void onEffectsRegistry(final NewRegistryEvent event)
     {
-        this.definitions.values().stream().sorted().forEach(effectDefinition -> effectDefinition.registerEffect(effectRegistryEvent.getRegistry()));
+        RegistryBuilder<MobEffect> builder = new RegistryBuilder<>();
+        var registry = event.create(builder).get();
+
+        this.definitions.values().stream().sorted().forEach(effectDefinition ->
+                effectDefinition.registerEffect(registry));
     }
 }

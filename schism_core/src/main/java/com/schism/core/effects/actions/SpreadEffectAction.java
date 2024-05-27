@@ -1,6 +1,6 @@
 package com.schism.core.effects.actions;
 
-import com.schism.core.database.CachedRegistryObject;
+import com.schism.core.database.registryobjects.BlockRegistryObject;
 import com.schism.core.database.DataStore;
 import com.schism.core.effects.EffectDefinition;
 import net.minecraft.world.damagesource.DamageSource;
@@ -12,7 +12,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class SpreadEffectAction extends AbstractEffectAction
 {
-    protected final CachedRegistryObject<MobEffect> cachedEffect;
+    protected final BlockRegistryObject<MobEffect> cachedEffect;
     protected final boolean onDamageDealt;
     protected final float range;
     protected final int levelOffset;
@@ -24,7 +24,7 @@ public class SpreadEffectAction extends AbstractEffectAction
     {
         super(definition, dataStore);
 
-        this.cachedEffect = new CachedRegistryObject<>(dataStore.stringProp("effect_id"), () -> ForgeRegistries.MOB_EFFECTS);
+        this.cachedEffect = new BlockRegistryObject<>(dataStore.stringProp("effect_id"), () -> ForgeRegistries.MOB_EFFECTS);
         this.onDamageDealt = dataStore.booleanProp("on_damage_dealt");
         this.range = dataStore.floatProp("range");
         this.levelOffset = dataStore.intProp("level_offset");

@@ -35,9 +35,9 @@ public class DamageRecoilEffectAction extends AbstractEffectAction
         recoil += this.damage * power;
         if (recoil > 0) {
             recoil = (float)Math.ceil(recoil);
-            DamageSource recoilDamageSource = new DamageSource(this.definition().subject());
+            DamageSource recoilDamageSource = livingEntity.level().damageSources().generic();
             if (!this.cachedElements.get().isEmpty()) {
-                recoilDamageSource = new ElementsDamageSource(this.cachedElements.get()).bypassArmor();
+                recoilDamageSource = new ElementsDamageSource(this.cachedElements.get()).elementsDamage(livingEntity.level());
             }
             livingEntity.hurt(recoilDamageSource, recoil);
         } else if (recoil < 0) {

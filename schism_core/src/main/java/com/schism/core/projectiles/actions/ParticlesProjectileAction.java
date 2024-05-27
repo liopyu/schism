@@ -1,6 +1,6 @@
 package com.schism.core.projectiles.actions;
 
-import com.schism.core.database.CachedRegistryObject;
+import com.schism.core.database.registryobjects.BlockRegistryObject;
 import com.schism.core.database.DataStore;
 import com.schism.core.particles.DefinedParticleType;
 import com.schism.core.projectiles.ProjectileDefinition;
@@ -14,10 +14,10 @@ import java.util.Random;
 
 public class ParticlesProjectileAction extends AbstractProjectileAction
 {
-    protected CachedRegistryObject<ParticleType<?>> cachedParticleType;
-    protected CachedRegistryObject<Block> cachedParticleBlock;
-    protected CachedRegistryObject<ParticleType<?>> cachedFluidParticleType;
-    protected CachedRegistryObject<Block> cachedFluidParticleBlock;
+    protected BlockRegistryObject<ParticleType<?>> cachedParticleType;
+    protected BlockRegistryObject<Block> cachedParticleBlock;
+    protected BlockRegistryObject<ParticleType<?>> cachedFluidParticleType;
+    protected BlockRegistryObject<Block> cachedFluidParticleBlock;
     protected final int intervalTicks;
     protected final float chance;
     protected final float offsetMin;
@@ -31,10 +31,10 @@ public class ParticlesProjectileAction extends AbstractProjectileAction
     {
         super(definition, dataStore);
 
-        this.cachedParticleType = new CachedRegistryObject<>(dataStore.stringProp("type_id"), () -> ForgeRegistries.PARTICLE_TYPES);
-        this.cachedParticleBlock = new CachedRegistryObject<>(dataStore.stringProp("block_id"), () -> ForgeRegistries.BLOCKS);
-        this.cachedFluidParticleType = new CachedRegistryObject<>(dataStore.stringProp("fluid_type_id"), () -> ForgeRegistries.PARTICLE_TYPES);
-        this.cachedFluidParticleBlock = new CachedRegistryObject<>(dataStore.stringProp("fluid_block_id"), () -> ForgeRegistries.BLOCKS);
+        this.cachedParticleType = new BlockRegistryObject<>(dataStore.stringProp("type_id"), () -> ForgeRegistries.PARTICLE_TYPES);
+        this.cachedParticleBlock = new BlockRegistryObject<>(dataStore.stringProp("block_id"), () -> ForgeRegistries.BLOCKS);
+        this.cachedFluidParticleType = new BlockRegistryObject<>(dataStore.stringProp("fluid_type_id"), () -> ForgeRegistries.PARTICLE_TYPES);
+        this.cachedFluidParticleBlock = new BlockRegistryObject<>(dataStore.stringProp("fluid_block_id"), () -> ForgeRegistries.BLOCKS);
         this.intervalTicks = dataStore.intProp("interval_ticks");
         this.chance = dataStore.floatProp("chance");
         this.offsetMin = dataStore.floatProp("offset_min");
@@ -73,7 +73,7 @@ public class ParticlesProjectileAction extends AbstractProjectileAction
         } else if (particleType instanceof DefinedParticleType) {
             particleOptions = (DefinedParticleType)particleType;
         } else if (particleType == ParticleTypes.BLOCK && this.cachedParticleBlock.isPresent()) {
-            CachedRegistryObject<Block> cachedBlock = projectile.isInWater() ? this.cachedFluidParticleBlock : this.cachedParticleBlock;
+            BlockRegistryObject<Block> cachedBlock = projectile.isInWater() ? this.cachedFluidParticleBlock : this.cachedParticleBlock;
             if (cachedBlock.isEmpty()) {
                 return;
             }

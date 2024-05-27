@@ -2,8 +2,13 @@ package com.schism.core.resolvers;
 
 import com.schism.core.elements.ElementDefinition;
 import com.schism.core.elements.ElementRepository;
-import com.schism.core.elements.IHasElements;
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.damagesource.*;
+import net.minecraft.world.level.Level;
 
 import java.util.Optional;
 
@@ -27,98 +32,100 @@ public class ElementResolver
      * @param priority If true, the priority is high and should override owner elements, if false it is low and should act as a fallback.
      * @return An optional element.
      */
-    public Optional<ElementDefinition> fromDamageSource(DamageSource damageSource, boolean priority)
+    public Optional<ElementDefinition> fromDamageSource(DamageSource damageSource, Level level, boolean priority)
     {
+        ResourceKey<DamageType> key = damageSource.typeHolder().unwrapKey().isPresent() ? damageSource.typeHolder().unwrapKey().get() : null;
+        if (key == null) return Optional.empty();
         if (priority) {
-            if (damageSource == DamageSource.STARVE) {
+            if (key == DamageTypes.STARVE) {
                 return ElementRepository.get().getDefinition("shadow");
             }
-            if (damageSource.isExplosion()) {
+            if (key == DamageTypes.EXPLOSION) {
                 return ElementRepository.get().getDefinition("quake");
             }
             return Optional.empty();
         }
 
-        if (damageSource == DamageSource.IN_FIRE) {
+        if (key == DamageTypes.IN_FIRE) {
             return ElementRepository.get().getDefinition("fire");
         }
-        if (damageSource == DamageSource.LIGHTNING_BOLT) {
+        if (key == DamageTypes.LIGHTNING_BOLT) {
             return ElementRepository.get().getDefinition("lightning");
         }
-        if (damageSource == DamageSource.ON_FIRE) {
+        if (key == DamageTypes.ON_FIRE) {
             return ElementRepository.get().getDefinition("fire");
         }
-        if (damageSource == DamageSource.LAVA) {
+        if (key == DamageTypes.LAVA) {
             return ElementRepository.get().getDefinition("lava");
         }
-        if (damageSource == DamageSource.HOT_FLOOR) {
+        if (key == DamageTypes.HOT_FLOOR) {
             return ElementRepository.get().getDefinition("lava");
         }
-        if (damageSource == DamageSource.IN_WALL) {
+        if (key == DamageTypes.IN_WALL) {
             return ElementRepository.get().getDefinition("earth");
         }
-        if (damageSource == DamageSource.CRAMMING) {
+        if (key == DamageTypes.CRAMMING) {
             return ElementRepository.get().getDefinition("earth");
         }
-        if (damageSource == DamageSource.DROWN) {
+        if (key == DamageTypes.DROWN) {
             return ElementRepository.get().getDefinition("water");
         }
-        if (damageSource == DamageSource.STARVE) {
+        if (key == DamageTypes.STARVE) {
             return ElementRepository.get().getDefinition("shadow");
         }
-        if (damageSource == DamageSource.CACTUS) {
+        if (key == DamageTypes.CACTUS) {
             return ElementRepository.get().getDefinition("arbour");
         }
-        if (damageSource == DamageSource.FALL) {
+        if (key == DamageTypes.FALL) {
             return ElementRepository.get().getDefinition("quake");
         }
-        if (damageSource == DamageSource.FLY_INTO_WALL) {
+        if (key == DamageTypes.FLY_INTO_WALL) {
             return ElementRepository.get().getDefinition("quake");
         }
-        if (damageSource == DamageSource.OUT_OF_WORLD) {
+        if (key == DamageTypes.FELL_OUT_OF_WORLD) {
             return ElementRepository.get().getDefinition("void");
         }
-        if (damageSource == DamageSource.GENERIC) {
+        if (key == DamageTypes.GENERIC) {
             return ElementRepository.get().getDefinition("quake");
         }
-        if (damageSource == DamageSource.MAGIC) {
+        if (key == DamageTypes.MAGIC) {
             return ElementRepository.get().getDefinition("poison");
         }
-        if (damageSource == DamageSource.WITHER) {
+        if (key == DamageTypes.WITHER) {
             return ElementRepository.get().getDefinition("shadow");
         }
-        if (damageSource == DamageSource.ANVIL) {
+        if (key == DamageTypes.FALLING_ANVIL) {
             return ElementRepository.get().getDefinition("earth");
         }
-        if (damageSource == DamageSource.FALLING_BLOCK) {
+        if (key == DamageTypes.FALLING_BLOCK) {
             return ElementRepository.get().getDefinition("earth");
         }
-        if (damageSource == DamageSource.DRAGON_BREATH) {
+        if (key == DamageTypes.DRAGON_BREATH) {
             return ElementRepository.get().getDefinition("void");
         }
-        if (damageSource == DamageSource.DRY_OUT) {
+        if (key == DamageTypes.DRY_OUT) {
             return ElementRepository.get().getDefinition("lava");
         }
-        if (damageSource == DamageSource.SWEET_BERRY_BUSH) {
+        if (key == DamageTypes.SWEET_BERRY_BUSH) {
             return ElementRepository.get().getDefinition("arbour");
         }
-        if (damageSource == DamageSource.FREEZE) {
+        if (key == DamageTypes.FREEZE) {
             return ElementRepository.get().getDefinition("frost");
         }
-        if (damageSource == DamageSource.FALLING_STALACTITE) {
+        if (key == DamageTypes.FALLING_STALACTITE) {
             return ElementRepository.get().getDefinition("quake");
         }
-        if (damageSource == DamageSource.STALAGMITE) {
+        if (key == DamageTypes.STALAGMITE) {
             return ElementRepository.get().getDefinition("quake");
         }
 
-        if (damageSource.isFall()) {
+        if (damageSource == level.damageSources().fall()) {
             return ElementRepository.get().getDefinition("quake");
         }
-        if (damageSource.isFire()) {
+        if (damageSource == level.damageSources().onFire() || damageSource == level.damageSources().inFire()) {
             return ElementRepository.get().getDefinition("fire");
         }
-        if (damageSource.isMagic()) {
+        if (damageSource == level.damageSources().magic()) {
             return ElementRepository.get().getDefinition("arcane");
         }
 

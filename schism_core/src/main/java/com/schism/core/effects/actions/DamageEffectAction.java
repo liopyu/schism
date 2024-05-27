@@ -50,7 +50,7 @@ public class DamageEffectAction extends AbstractEffectAction
         int power = effectInstance.getAmplifier() + 1;
         DamageSource damageSource = new DamageSource(this.definition().subject());
         if (!this.cachedElements.get().isEmpty()) {
-            damageSource = new ElementsDamageSource(this.cachedElements.get()).bypassArmor();
+            damageSource = livingEntity.level().damageSources().indirectMagic(this.cachedElements.get()).bypassArmor();
         }
         livingEntity.hurt(damageSource, this.damage * power);
     }

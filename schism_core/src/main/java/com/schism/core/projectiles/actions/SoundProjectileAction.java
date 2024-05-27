@@ -1,6 +1,6 @@
 package com.schism.core.projectiles.actions;
 
-import com.schism.core.database.CachedRegistryObject;
+import com.schism.core.database.registryobjects.BlockRegistryObject;
 import com.schism.core.database.DataStore;
 import com.schism.core.projectiles.ProjectileDefinition;
 import com.schism.core.projectiles.ProjectileEntity;
@@ -10,7 +10,7 @@ import net.minecraft.sounds.SoundSource;
 
 public class SoundProjectileAction extends AbstractProjectileAction
 {
-    protected final CachedRegistryObject<SoundEvent> cachedSoundEvent;
+    protected final BlockRegistryObject<SoundEvent> cachedSoundEvent;
     protected final int tickInterval;
     protected final float chance;
     protected final float volumeMin;

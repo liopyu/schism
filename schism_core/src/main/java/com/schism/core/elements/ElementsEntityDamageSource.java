@@ -1,11 +1,12 @@
 package com.schism.core.elements;
 
-import net.minecraft.world.damagesource.IndirectEntityDamageSource;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 
 import java.util.List;
 
-public class ElementsEntityDamageSource extends IndirectEntityDamageSource implements IHasElements
+public class ElementsEntityDamageSource extends DamageSource implements IHasElements
+
 {
     protected final List<ElementDefinition> elements;
 

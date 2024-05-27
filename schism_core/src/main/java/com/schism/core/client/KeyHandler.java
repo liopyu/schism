@@ -5,10 +5,10 @@ import com.schism.core.client.gui.WidgetState;
 import com.schism.core.client.gui.screens.JournalScreen;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
-import net.minecraftforge.client.ClientRegistry;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import org.apache.commons.lang3.ArrayUtils;
 import org.lwjgl.glfw.GLFW;
 
 public class KeyHandler
@@ -39,7 +39,7 @@ public class KeyHandler
     {
         this.minecraft = Minecraft.getInstance();
         this.widgetState = new WidgetState();
-        ClientRegistry.registerKeyBinding(this.journal);
+        Minecraft.getInstance().options.keyMappings = ArrayUtils.add(Minecraft.getInstance().options.keyMappings, this.journal);
     }
 
     /**
@@ -64,7 +64,7 @@ public class KeyHandler
      * @param event The mouse input event.
      */
     @SubscribeEvent
-    public void onMouseEvent(InputEvent.MouseInputEvent event)
+    public void onMouseEvent(InputEvent.MouseButton event)
     {
         // Mouse Release:
         if (event.getAction() == GLFW.GLFW_RELEASE) {

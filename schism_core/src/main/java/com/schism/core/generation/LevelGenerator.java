@@ -1,7 +1,6 @@
 package com.schism.core.generation;
 
 import com.schism.core.Schism;
-import com.schism.core.database.CachedRegistryObject;
 import com.schism.core.database.DataStore;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -9,10 +8,10 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
@@ -27,8 +26,10 @@ import net.minecraft.world.level.levelgen.heightproviders.UniformHeight;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
+import net.minecraftforge.common.world.ForgeBiomeModifiers;
+import net.minecraftforge.common.world.ModifiableBiomeInfo;
+import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraftforge.event.level.LevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -123,18 +124,18 @@ public class LevelGenerator
      * Called during the biome loading event, used for adding features.
      * @param event The biome loading event/
      */
-    @SubscribeEvent
-    public void biomeLoadingEvent(final BiomeLoadingEvent event)
+
+    public void biomeLoadingEvent(final ModifiableBiomeInfo event)
     {
         this.lakes.forEach(entry -> this.addGenerationFeature(event, GenerationStep.Decoration.LAKES, entry));
         this.springs.forEach(entry -> this.addGenerationFeature(event, GenerationStep.Decoration.FLUID_SPRINGS, entry));
     }
 
-    protected void addGenerationFeature(final BiomeLoadingEvent event, GenerationStep.Decoration decoration, GenerationEntry generationEntry)
+    protected void addGenerationFeature(final ModifiableBiomeInfo event, GenerationStep.Decoration decoration, GenerationEntry generationEntry)
     {
         if (!generationEntry.biomeCategories().isEmpty() && !generationEntry.biomeCategories().contains(event.getCategory().getName())) {
             return;
         }
-        event.getGeneration().addFeature(decoration, generationEntry.featureHolder());
+        event.().addFeature(decoration, generationEntry.featureHolder());
     }
 }

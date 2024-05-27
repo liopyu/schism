@@ -2,12 +2,16 @@ package com.schism.core.resolvers;
 
 import com.schism.core.Schism;
 import com.schism.core.database.CachedObject;
-import com.schism.core.database.CachedRegistryObject;
+import com.schism.core.database.registryobjects.SoundRegistryObject;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.NewRegistryEvent;
+import net.minecraftforge.registries.RegistryBuilder;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,31 +36,30 @@ public class SoundEventResolver
      * @param id The sound event id.
      * @return A cached registry object that provides an optional sound event.
      */
-    public CachedRegistryObject<SoundEvent> fromId(String id)
+    public SoundRegistryObject<SoundEvent> fromId(String id)
     {
         ResourceLocation resourceLocation = new ResourceLocation(id);
         if (resourceLocation.getNamespace().equals(Schism.NAMESPACE) && !this.soundEvents.containsKey(resourceLocation.getPath())) {
-            this.soundEvents.put(resourceLocation.getPath(), CachedObject.of(() -> {
-                SoundEvent soundEvent = new SoundEvent(resourceLocation);
-                soundEvent.setRegistryName(resourceLocation);
-                return soundEvent;
-            }));
+            this.soundEvents.put(resourceLocation.getPath(), CachedObject.of(() -> SoundEvent.createVariableRangeEvent(resourceLocation)));
         }
-        return new CachedRegistryObject<>(id, () -> ForgeRegistries.SOUND_EVENTS);
+        return new SoundRegistryObject<>(id, () -> ForgeRegistries.SOUND_EVENTS);
     }
 
     /**
      * Registers sound events into Forge.
      * @param event The sound event registry event.
-     */
+     *//*
     @SubscribeEvent
-    public void onSoundEventsRegistry(final RegistryEvent.Register<SoundEvent> event)
+    public void onSoundEventsRegistry(final  bus)
     {
+        var registry = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS,Schism.NAMESPACE);
         this.soundEvents.values().forEach(optionalSoundEvent -> {
             if (!optionalSoundEvent.isPresent()) {
                 return;
             }
-            event.getRegistry().register(optionalSoundEvent.get());
+            SoundEvent soundEvent = optionalSoundEvent.get();
+            registry.register(soundEvent.toString(), optionalSoundEvent::get);
+            registry.register(bus);
         });
-    }
+    }*/
 }

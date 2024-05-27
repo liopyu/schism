@@ -25,14 +25,14 @@ public class EffectEventListener
      * @param event The event instance.
      */
     @SubscribeEvent
-    public void onEntityUpdate(LivingEvent.LivingUpdateEvent event)
+    public void onEntityUpdate(LivingEvent.LivingTickEvent event)
     {
-        if(event.isCanceled() || event.getEntityLiving() == null) {
+        if(event.isCanceled() || event.getEntity() == null) {
             return;
         }
-        List.copyOf(event.getEntityLiving().getActiveEffects()).forEach(effectInstance -> {
-            if (!event.getEntityLiving().isDeadOrDying() && effectInstance.getEffect() instanceof Effect effect) {
-                effect.update(effectInstance, event.getEntityLiving());
+        List.copyOf(event.getEntity().getActiveEffects()).forEach(effectInstance -> {
+            if (!event.getEntity().isDeadOrDying() && effectInstance.getEffect() instanceof Effect effect) {
+                effect.update(effectInstance, event.getEntity());
             }
         });
     }
@@ -44,12 +44,12 @@ public class EffectEventListener
     @SubscribeEvent
     public void onEntityJump(LivingEvent.LivingJumpEvent event)
     {
-        if(event.isCanceled() || event.getEntityLiving() == null) {
+        if(event.isCanceled() || event.getEntity() == null) {
             return;
         }
-        List.copyOf(event.getEntityLiving().getActiveEffects()).forEach(effectInstance -> {
+        List.copyOf(event.getEntity().getActiveEffects()).forEach(effectInstance -> {
             if (effectInstance.getEffect() instanceof Effect effect) {
-                if (!effect.jump(effectInstance, event.getEntityLiving()) && event.isCancelable()) {
+                if (!effect.jump(effectInstance, event.getEntity()) && event.isCancelable()) {
                     event.setCanceled(true);
                 }
             }
@@ -63,14 +63,14 @@ public class EffectEventListener
     @SubscribeEvent
     public void onEntityHurt(LivingHurtEvent event)
     {
-        if(event.isCanceled() || event.getEntityLiving() == null) {
+        if(event.isCanceled() || event.getEntity() == null) {
             return;
         }
 
         // Damage Taken:
-        List.copyOf(event.getEntityLiving().getActiveEffects()).forEach(effectInstance -> {
+        List.copyOf(event.getEntity().getActiveEffects()).forEach(effectInstance -> {
             if (effectInstance.getEffect() instanceof Effect effect) {
-                event.setAmount(effect.damageTaken(effectInstance, event.getEntityLiving(), event.getSource(), event.getAmount()));
+                event.setAmount(effect.damageTaken(effectInstance, event.getEntity(), event.getSource(), event.getAmount()));
                 if (event.getAmount() == 0 && event.isCancelable()) {
                     event.setCanceled(true);
                 }
@@ -81,7 +81,7 @@ public class EffectEventListener
         if (event.getSource().getEntity() instanceof LivingEntity sourceLivingEntity) {
             sourceLivingEntity.getActiveEffects().forEach(effectInstance -> {
                 if (effectInstance.getEffect() instanceof Effect effect) {
-                    event.setAmount(effect.damageDealt(effectInstance, sourceLivingEntity, event.getEntityLiving(), event.getSource(), event.getAmount()));
+                    event.setAmount(effect.damageDealt(effectInstance, sourceLivingEntity, event.getEntity(), event.getSource(), event.getAmount()));
                     if (event.getAmount() == 0 && event.isCancelable()) {
                         event.setCanceled(true);
                     }
@@ -97,12 +97,12 @@ public class EffectEventListener
     @SubscribeEvent
     public void onEntityHeal(LivingHealEvent event)
     {
-        if(event.isCanceled() || event.getEntityLiving() == null) {
+        if(event.isCanceled() || event.getEntity() == null) {
             return;
         }
-        List.copyOf(event.getEntityLiving().getActiveEffects()).forEach(effectInstance -> {
+        List.copyOf(event.getEntity().getActiveEffects()).forEach(effectInstance -> {
             if (effectInstance.getEffect() instanceof Effect effect) {
-                event.setAmount(effect.healingTaken(effectInstance, event.getEntityLiving(), event.getAmount()));
+                event.setAmount(effect.healingTaken(effectInstance, event.getEntity(), event.getAmount()));
                 if (event.getAmount() == 0 && event.isCancelable()) {
                     event.setCanceled(true);
                 }
@@ -117,12 +117,12 @@ public class EffectEventListener
     @SubscribeEvent
     public void onEntitySleep(PlayerSleepInBedEvent event)
     {
-        if(event.isCanceled() || event.getEntityLiving() == null) {
+        if(event.isCanceled() || event.getEntity() == null) {
             return;
         }
-        List.copyOf(event.getEntityLiving().getActiveEffects()).forEach(effectInstance -> {
+        List.copyOf(event.getEntity().getActiveEffects()).forEach(effectInstance -> {
             if (effectInstance.getEffect() instanceof Effect effect) {
-                if (!effect.sleep(effectInstance, event.getEntityLiving(), event.getOptionalPos()) && event.isCancelable()) {
+                if (!effect.sleep(effectInstance, event.getEntity(), event.getOptionalPos()) && event.isCancelable()) {
                     event.setCanceled(true);
                 }
             }
@@ -136,12 +136,12 @@ public class EffectEventListener
     @SubscribeEvent
     public void onEntityUseItem(LivingEntityUseItemEvent event)
     {
-        if(event.isCanceled() || event.getEntityLiving() == null) {
+        if(event.isCanceled() || event.getEntity() == null) {
             return;
         }
-        List.copyOf(event.getEntityLiving().getActiveEffects()).forEach(effectInstance -> {
+        List.copyOf(event.getEntity().getActiveEffects()).forEach(effectInstance -> {
             if (effectInstance.getEffect() instanceof Effect effect) {
-                if (!effect.item(effectInstance, event.getEntityLiving(), event.getItem(), event.getDuration()) && event.isCancelable()) {
+                if (!effect.item(effectInstance, event.getEntity(), event.getItem(), event.getDuration()) && event.isCancelable()) {
                     event.setCanceled(true);
                 }
             }
