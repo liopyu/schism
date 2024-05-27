@@ -1,5 +1,6 @@
 package com.schism.core.items;
 
+import com.schism.core.util.Helpers.Material;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
@@ -25,15 +26,18 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BucketPickup;
 import net.minecraft.world.level.block.LiquidBlockContainer;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.SoundAction;
+import net.minecraftforge.common.SoundActions;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import org.jetbrains.annotations.NotNull;
 
@@ -116,7 +120,7 @@ public class FluidBucketItem extends BucketItem
 
         BlockState blockState = level.getBlockState(blockPos);
         Block block = blockState.getBlock();
-        Material material = blockState.getMaterial();
+                BlockBehaviour.BlockStateBase material = blockState;
         boolean canBeReplaced = blockState.canBeReplaced(this.getFluid());
         boolean replace = blockState.isAir() || canBeReplaced || block instanceof LiquidBlockContainer && ((LiquidBlockContainer)block).canPlaceLiquid(level, blockPos, blockState, this.getFluid());
         if (!replace) {
@@ -129,7 +133,7 @@ public class FluidBucketItem extends BucketItem
             return true;
         }
 
-        if (!level.isClientSide && canBeReplaced && !material.isLiquid()) {
+        if (!level.isClientSide && canBeReplaced && !material.liquid()) {
             level.destroyBlock(blockPos, true);
         }
 
@@ -143,7 +147,7 @@ public class FluidBucketItem extends BucketItem
 
     @Override
     protected void playEmptySound(@Nullable Player player, LevelAccessor levelAccessor, BlockPos blockPos) {
-        SoundEvent soundEvent = this.getFluid().getAttributes().getEmptySound();
+        SoundEvent soundEvent = this.getFluid().getFluidType().getSound(SoundActions.BUCKET_EMPTY);
         if(soundEvent == null) {
             soundEvent = this.getFluid().is(FluidTags.LAVA) ? SoundEvents.BUCKET_EMPTY_LAVA : SoundEvents.BUCKET_EMPTY;
         }
@@ -158,7 +162,7 @@ public class FluidBucketItem extends BucketItem
      * @param blockState The block state to check.
      * @return True if a fluid can be contained.
      */
-    private boolean canBlockContainFluid(Level level, BlockPos blockPos, BlockState blockState)
+    public boolean canBlockContainFluid(Level level, BlockPos blockPos, BlockState blockState)
     {
         return blockState.getBlock() instanceof LiquidBlockContainer && ((LiquidBlockContainer)blockState.getBlock()).canPlaceLiquid(level, blockPos, blockState, this.getFluid());
     }

@@ -4,22 +4,23 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '[6.0.16,6.2)', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: "[$forge_gradle_version_range)", changing: true
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.20.2-48.1.0'
 group = 'com.schism.core' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'schism'
-
+minecraft {
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+}
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-    mappings channel: 'official', version: '1.20.2'
+    mappings channel: 'official', version: "${minecraft_version}"
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
     
     runs {
@@ -69,7 +70,7 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.20.2-48.1.0'
+    minecraft "net.minecraftforge:forge:$minecraft_version-$forge_version"
 }
 
 jar {
@@ -77,7 +78,7 @@ jar {
         attributes([
                 "Specification-Title"     : "${archivesBaseName}",
                 "Specification-Vendor"    : "${archivesBaseName}",
-                "Specification-Version"   : "${version}",
+                "Specification-Version"   : "${schism_core_version}",
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
                 "Implementation-Vendor"   : "${archivesBaseName}",

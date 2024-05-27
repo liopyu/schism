@@ -10,6 +10,7 @@ import com.schism.core.items.FluidBucketItem;
 import com.schism.core.items.ItemRepository;
 import com.schism.core.resolvers.MaterialResolver;
 import com.schism.core.resolvers.SoundTypeResolver;
+import com.schism.core.util.Helpers.Material;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -19,10 +20,10 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.material.Material;
-import net.minecraftforge.fluids.FluidAttributes;
+import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.registries.IForgeRegistry;
 
@@ -78,7 +79,7 @@ public class BlockDefinition extends AbstractDefinition
     protected int fluidSloping;
     protected int fluidDropOff;
     protected int fluidTickRate;
-
+    protected FluidType fluidType;
     // World Generation:
     protected Map<String, DataStore> generations;
 
@@ -288,7 +289,7 @@ public class BlockDefinition extends AbstractDefinition
         if (this.useFireSource() && blockState.isFireSource(levelReader, blockPos, direction)) {
             return true;
         }
-        return DataStore.idInList(blockState.getBlock().getRegistryName(), this.sourceBlockIds);
+        return DataStore.idInList(blockState.getBlock().builtInRegistryHolder().key().registry(), this.sourceBlockIds);
     }
 
     /**
@@ -318,8 +319,7 @@ public class BlockDefinition extends AbstractDefinition
             return this.block;
         }
 
-        Material material = MaterialResolver.get().fromString(this.material());
-        Block.Properties properties = Block.Properties.of(material);
+        Block.Properties properties = MaterialResolver.get().fromString(this.material());
 
         if (!this.hasCollision) {
             properties.noCollission();
@@ -377,10 +377,11 @@ public class BlockDefinition extends AbstractDefinition
             }
             Item.Properties properties = new Item.Properties();
             if (!this.type.equals("fluid")) {
-                properties.tab(ItemRepository.get().creativeModeTab(this.creativeModeTab));
+                // TODO:Register Creative Mode Tabs
+                //properties.tab(ItemRepository.get().creativeModeTab(this.creativeModeTab));
             }
             this.item = new BlockItem(this.block(), properties);
-            this.item.setRegistryName(this.resourceLocation());
+            //this.item.setRegistryName(this.resourceLocation());
         }
 
         return this.item;
@@ -397,31 +398,42 @@ public class BlockDefinition extends AbstractDefinition
         }
         if (this.bucket == null) {
             Item.Properties properties = new Item.Properties();
-            properties.tab(ItemRepository.get().creativeModeTab(this.creativeModeTab));
+            // TODO: Register Creative Mode Tabs
+            //properties.tab(ItemRepository.get().creativeModeTab(this.creativeModeTab));
             properties.stacksTo(1);
             properties.craftRemainder(Items.BUCKET);
             this.bucket = new FluidBucketItem(this::stillFluid, properties);
-            this.bucket.setRegistryName(this.subject() + "_bucket");
+            //this.bucket.setRegistryName(this.subject() + "_bucket");
         }
         return this.bucket;
     }
 
+public FluidType getFluidType(){
+
+        if (!this.type.equals("fluid")) {
+            return null;
+        }
+        if (this.fluidType == null) {
+            FluidType.Properties fluidBuilder = FluidType.Properties.create();
+            fluidBuilder.density(this.fluidDensity);
+            fluidBuilder.viscosity(this.fluidViscosity);
+            fluidBuilder.temperature(this.fluidTemperature);
+            fluidBuilder.lightLevel(this.fluidLuminosity);
+            if (this.fluidMultiply) {
+                fluidBuilder.canConvertToSource(true);
+            }
+            this.fluidType = new FluidType(fluidBuilder);
+        }
+
+        return this.fluidType;
+}
     /**
      * Generates fluid properties for creating fluids.
      * @return Fluid properties for generating fluids.
      */
     protected ForgeFlowingFluid.Properties fluidProperties()
     {
-        FluidAttributes.Builder fluidBuilder = FluidAttributes.builder(new ResourceLocation(Schism.NAMESPACE, "block/" + this.subject() + "_still"), new ResourceLocation(Schism.NAMESPACE, "block/" + this.subject() + "_flowing"));
-        fluidBuilder.color(this.fluidColor);
-        fluidBuilder.density(this.fluidDensity);
-        fluidBuilder.viscosity(this.fluidViscosity);
-        fluidBuilder.temperature(this.fluidTemperature);
-        fluidBuilder.luminosity(this.fluidLuminosity);
-        ForgeFlowingFluid.Properties fluidProperties = new ForgeFlowingFluid.Properties(this::stillFluid, this::flowingFluid, fluidBuilder);
-        if (this.fluidMultiply) {
-            fluidProperties.canMultiply();
-        }
+        ForgeFlowingFluid.Properties fluidProperties = new ForgeFlowingFluid.Properties(this::getFluidType,this::stillFluid, this::flowingFluid);
         fluidProperties.tickRate(this.fluidTickRate);
         fluidProperties.bucket(this::bucket);
         fluidProperties.block(() -> (FluidBlock) this.block());
@@ -467,7 +479,7 @@ public class BlockDefinition extends AbstractDefinition
         if (this.block() == null) {
             throw new RuntimeException("Tried to register a null block for: " + this.subject());
         }
-        registry.register(this.block());
+        registry.register(resourceLocation(),this.block());
     }
 
     /**
@@ -477,10 +489,10 @@ public class BlockDefinition extends AbstractDefinition
     public void registerFluid(final IForgeRegistry<net.minecraft.world.level.material.Fluid> registry)
     {
         if (this.stillFluid() != null) {
-            registry.register(this.stillFluid());
+            registry.register(new ResourceLocation(Schism.NAMESPACE, "block/" + this.subject() + "_still"),this.stillFluid());
         }
         if (this.flowingFluid() != null) {
-            registry.register(this.flowingFluid());
+            registry.register(new ResourceLocation(Schism.NAMESPACE, "block/" + this.subject() + "_flowing"),this.flowingFluid());
         }
     }
 
@@ -493,9 +505,9 @@ public class BlockDefinition extends AbstractDefinition
         if (this.item() == null) {
             throw new RuntimeException("Tried to register a null block item for: " + this.subject());
         }
-        registry.register(this.item());
+        registry.register(this.resourceLocation(),this.item());
         if (this.bucket() != null) {
-            registry.register(this.bucket());
+            registry.register(new ResourceLocation(this.subject() + "_bucket"),this.bucket());
         }
     }
 

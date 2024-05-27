@@ -1,6 +1,9 @@
 package com.schism.core.resolvers;
 
-import net.minecraft.world.level.material.Material;
+
+import com.schism.core.util.Helpers.Material;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 
 public class MaterialResolver
 {
@@ -20,7 +23,7 @@ public class MaterialResolver
      * @param string The string to get a Material for.
      * @return A Minecraft Material.
      */
-    public Material fromString(String string)
+    public BlockBehaviour.Properties fromString(String string)
     {
         return switch (string) {
             case "air" -> Material.AIR;
@@ -61,3 +64,14 @@ public class MaterialResolver
         };
     }
 }
+/*
+case "air" -> Blocks.AIR.defaultBlockState();
+            case "portal" -> Blocks.NETHER_PORTAL.defaultBlockState();
+            case "cloth_decoration" -> Blocks.WHITE_BANNER.defaultBlockState();
+            case "plant" -> Blocks.WHEAT.defaultBlockState();
+            case "water_plant" -> Blocks.KELP_PLANT.defaultBlockState();
+            case "water" -> Blocks.WATER.defaultBlockState();
+            case "lava" -> Blocks.LAVA.defaultBlockState();
+            case "top_snow" -> Blocks.SNOW.defaultBlockState();
+            case "fire" -> Blocks.FIRE.defaultBlockState();
+            case "decoration" -> Material.DECORATION;*/

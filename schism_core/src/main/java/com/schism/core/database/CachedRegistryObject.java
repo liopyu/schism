@@ -2,11 +2,10 @@ package com.schism.core.database;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.registries.IForgeRegistry;
-import net.minecraftforge.registries.IForgeRegistryEntry;
 
 import java.util.function.Supplier;
 
-public class CachedRegistryObject<ObjectT extends IForgeRegistryEntry<ObjectT>> extends CachedObject<ObjectT>
+public class CachedRegistryObject<ObjectT extends IForgeRegistry<ObjectT>> extends CachedObject<ObjectT>
 {
     /**
      * Cached Registry Objects take a forge registry id and will return the object it matches with caching for performance.

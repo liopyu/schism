@@ -60,7 +60,7 @@ public class AltarCommand extends AbstractCommand
         altarSubjects.add(StringArgumentType.getString(context, "altar"));
         int area = IntegerArgumentType.getInteger(context, "area");
 
-        Optional<AltarDefinition> optionalAltar = Altars.get().search(serverPlayer.getLevel(), serverPlayer.blockPosition(), area, altarSubjects);
+        Optional<AltarDefinition> optionalAltar = Altars.get().search(serverPlayer.level(), serverPlayer.blockPosition(), area, altarSubjects);
         if (optionalAltar.isEmpty()) {
             context.getSource().sendSuccess((Supplier<Component>) Component.translatable("schism.command.altar.check.missing"), true);
         } else {
@@ -99,7 +99,7 @@ public class AltarCommand extends AbstractCommand
         }
 
         try {
-            Altars.get().build(serverPlayer.getLevel(), position, rotation, altarDefinition);
+            Altars.get().build(serverPlayer.level(), position, rotation, altarDefinition);
         } catch (Exception e) {
             e.printStackTrace();
             context.getSource().sendFailure(Component.translatable("schism.command.altar.build.fail.altar"));
