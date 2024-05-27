@@ -1,0 +1,15 @@
+{
+    "color": "0x00FFD2",
+    "vis_polarisations": [
+        "compression",
+        "extropy"
+    ],
+    "fusion_components": [
+        "earth",
+        "order"
+    ],
+    "particle_type_id": "minecraft:enchant",
+    "particle_block_id": "",
+    "particle_force": 1,
+    "particle_offset": 0.25
+}

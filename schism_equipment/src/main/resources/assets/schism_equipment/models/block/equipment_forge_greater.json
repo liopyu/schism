@@ -1,0 +1,8 @@
+{
+    "parent": "block/orientable",
+    "textures": {
+        "top": "schism:block/equipment_forge_greater_top",
+        "front": "schism:block/equipment_forge_greater_front",
+        "side": "schism:block/equipment_forge_greater_side"
+    }
+}

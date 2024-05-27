@@ -1,0 +1,8 @@
+{
+    "parent": "block/orientable",
+    "textures": {
+        "top": "schism:block/equipment_infuser_top",
+        "front": "schism:block/equipment_infuser_front",
+        "side": "schism:block/equipment_infuser_side"
+    }
+}

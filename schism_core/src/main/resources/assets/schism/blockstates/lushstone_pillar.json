@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y": { "model": "schism:block/lushstone_pillar" },
+        "axis=z": { "model": "schism:block/lushstone_pillar", "x": 90 },
+        "axis=x": { "model": "schism:block/lushstone_pillar", "x": 90, "y": 90 }
+    }
+}

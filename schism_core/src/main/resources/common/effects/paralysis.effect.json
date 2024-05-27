@@ -1,0 +1,16 @@
+{
+    "color": "0xFFFF00",
+    "beneficial": false,
+    "detrimental": true,
+    "group": "ailment",
+    "effect_actions": {
+        "slow": {
+            "type": "speed",
+            "multiply": [0.5, 1, 0.5]
+        },
+        "jump": {
+            "type": "jump",
+            "cancel": true
+        }
+    }
+}

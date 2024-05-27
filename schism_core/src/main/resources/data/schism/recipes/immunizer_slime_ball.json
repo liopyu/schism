@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "schism:immunizer"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:amethyst_shard"
+    },
+    {
+      "item": "minecraft:slime_ball"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

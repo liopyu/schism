@@ -1,0 +1,2 @@
+rootProject.name = 'schism'
+include 'schism_core'

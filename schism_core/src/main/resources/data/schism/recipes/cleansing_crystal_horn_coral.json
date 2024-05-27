@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "schism:cleansing_crystal"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:amethyst_shard"
+    },
+    {
+      "item": "minecraft:horn_coral"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

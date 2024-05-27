@@ -1,0 +1,15 @@
+{
+    "hunts": [],
+    "avoids": [],
+    "protects": [
+        "animal"
+    ],
+    "rivals": [
+        "humanoid",
+        "alpha"
+    ],
+    "ignores": [
+        "boss",
+        "neutral"
+    ]
+}

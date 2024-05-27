@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "schism:demon_crystal"
+  },
+  "ingredients": [
+    {
+      "item": "schism:demonstone"
+    },
+    {
+      "item": "minecraft:glowstone"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

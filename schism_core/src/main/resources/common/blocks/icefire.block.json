@@ -1,0 +1,110 @@
+{
+    "properties": {
+        "creative_mode_tab": "blocks",
+        "creative_mode_icon": "",
+        "type": "fire",
+        "material": "fire",
+        "has_collision": false,
+        "sound_type": "wool",
+        "destroy_time": 0,
+        "explosion_resistance": 0,
+        "light_emission": 0,
+        "friction": 0.6,
+        "speed_factor": 1,
+        "jump_factor": 1,
+        "tool_for_drops": true,
+        "tick_random": true
+    },
+    "client": {
+        "render_type": "cutout"
+    },
+    "behavior": {
+        "age": 15,
+        "tick_rate_min": 30,
+        "tick_rate_max": 40,
+        "persistent_default": false,
+        "use_fire_source": false
+    },
+    "source_block_ids": [
+        "minecraft:ice",
+        "minecraft:packed_ice",
+        "minecraft:frosted_ice",
+        "minecraft:snow"
+    ],
+    "block_actions": {
+        "age": {
+            "type": "age",
+            "speed_min": 4,
+            "speed_max": 8
+        },
+        "deteriorate": {
+            "type": "deteriorate",
+            "chance": 1.0,
+            "age_min": 15,
+            "destroyed_by_rain": false
+        },
+        "planted": {
+            "type": "planted",
+            "remove_chance": 1.0,
+            "age_min": 0,
+            "directions_solid": [
+                "down"
+            ],
+            "specific_block_ids": [
+                "minecraft:packed_ice",
+                "minecraft:frosted_ice"
+            ],
+            "directions_specific": [
+                "up",
+                "down",
+                "cardinal"
+            ]
+        },
+        "spread": {
+            "type": "spread",
+            "spread_chance": 0.5,
+            "spread_flammable": false,
+            "spread_block_ids": [
+                "minecraft:ice",
+                "minecraft_snow"
+            ]
+        },
+        "damage": {
+            "type": "damage",
+            "elements": [
+                "frost"
+            ],
+            "damage": 1,
+            "tick_rate": 20
+        },
+        "effect": {
+            "type": "effect",
+            "effect_id": "schism:chill",
+            "ticks": 60,
+            "level": 1
+        },
+        "particles": {
+            "type": "particles",
+            "type_id": "schism:frost",
+            "block_id": "",
+            "tick_interval": 5,
+            "chance": 1.0,
+            "offset_min": 0.0,
+            "offset_max": 0.5,
+            "force_min": 0.1,
+            "force_max": 0.2,
+            "count_min": 1,
+            "count_max": 2
+        },
+        "sound": {
+            "type": "sound",
+            "sound": "schism:block.icefire",
+            "tick_interval": 120,
+            "chance": 0.25,
+            "volume_min": 0.5,
+            "volume_max": 1.0,
+            "pitch_min": 0.9,
+            "pitch_max": 1.1
+        }
+    }
+}

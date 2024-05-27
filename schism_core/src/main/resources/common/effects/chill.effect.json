@@ -1,0 +1,13 @@
+{
+    "color": "0x88DDCC",
+    "beneficial": false,
+    "detrimental": true,
+    "group": "ailment",
+    "effect_actions": {
+        "environment": {
+            "type": "environment",
+            "effect": "freeze",
+            "ticks": 0
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "schism:dark_crystal"
+  },
+  "ingredients": [
+    {
+      "item": "schism:darkstone"
+    },
+    {
+      "item": "minecraft:glowstone"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

@@ -1,0 +1,21 @@
+{
+    "color": "0xDDDDFF",
+    "beneficial": false,
+    "detrimental": true,
+    "group": "curse",
+    "conditions": {
+        "light": {
+            "type": "light",
+            "brightness_min": 0,
+            "brightness_max": 15,
+            "sunlight": true
+        }
+    },
+    "effect_actions": {
+        "environment": {
+            "type": "environment",
+            "effect": "burn",
+            "ticks": 20
+        }
+    }
+}

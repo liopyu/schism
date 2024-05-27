@@ -1,0 +1,11 @@
+{
+	"replace": false,
+	"values": [
+		"schism:demonstone_brick_fence",
+		"schism:desertstone_brick_fence",
+		"schism:lushstone_brick_fence",
+		"schism:darkstone_brick_fence",
+		"schism:aberrantstone_brick_fence",
+		"schism:ashenstone_brick_fence"
+	]
+}

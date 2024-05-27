@@ -1,0 +1,50 @@
+{
+    "pantheon": "nix",
+    "ranks": {
+        "initiate": {
+            "devotion": 1,
+            "perks": {
+                "element": {
+                    "type": "element",
+                    "element": "void",
+                    "damage": false,
+                    "resistance": true,
+                    "harmony": false
+                }
+            }
+        },
+        "disciple": {
+            "devotion": 500,
+            "perks": {
+                "element": {
+                    "type": "element",
+                    "element": "void",
+                    "damage": true,
+                    "resistance": false,
+                    "harmony": false
+                }
+            }
+        },
+        "priest": {
+            "devotion": 2000,
+            "perks": {
+                "fear_protection": {
+                    "type": "effect_protection",
+                    "effect_id": "schism:fear"
+                }
+            }
+        },
+        "seer": {
+            "devotion": 5000,
+            "perks": {
+                "element": {
+                    "type": "element",
+                    "element": "void",
+                    "damage": false,
+                    "resistance": false,
+                    "harmony": true
+                }
+            }
+        }
+    }
+}

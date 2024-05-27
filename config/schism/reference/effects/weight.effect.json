@@ -1,0 +1,24 @@
+{
+    "color": "0x000022",
+    "beneficial": false,
+    "detrimental": true,
+    "group": "ailment",
+    "effect_actions": {
+        "velocity": {
+            "type": "velocity",
+            "force": [
+                0,
+                -0.1,
+                0
+            ],
+            "random_min": 1.0,
+            "random_max": 1.0,
+            "tick_rate": 1,
+            "chance": 1
+        },
+        "jump": {
+            "type": "jump",
+            "cancel": true
+        }
+    }
+}

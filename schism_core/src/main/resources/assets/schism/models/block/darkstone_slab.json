@@ -1,0 +1,8 @@
+{
+    "parent": "block/slab",
+    "textures": {
+        "bottom": "schism:block/darkstone_polished",
+        "top": "schism:block/darkstone_polished",
+        "side": "schism:block/darkstoneslab"
+    }
+}

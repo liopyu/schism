@@ -1,0 +1,13 @@
+{
+    "color": "0xDDFFFF",
+    "beneficial": true,
+    "detrimental": false,
+    "group": "boon",
+    "effect_actions": {
+        "damage_taken": {
+            "type": "damage_taken",
+            "multiply": 0,
+            "source": "fall"
+        }
+    }
+}

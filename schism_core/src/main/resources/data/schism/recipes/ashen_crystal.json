@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "schism:ashen_crystal"
+  },
+  "ingredients": [
+    {
+      "item": "schism:ashenstone"
+    },
+    {
+      "item": "minecraft:glowstone"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

@@ -1,0 +1,18 @@
+{
+    "entity_id": "minecraft:creeper",
+    "creature_type": "creeper",
+    "realm": "overworld",
+    "creature_roles": [
+        "monster"
+    ],
+    "base_element": "fire",
+    "resist_elements": [],
+    "weakness_elements": [
+		"water"
+    ],
+    "stats_per_level": {
+        "health": 0.1,
+        "attack": 0.2,
+        "defense": 0.05
+    }
+}

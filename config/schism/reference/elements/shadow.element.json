@@ -1,0 +1,15 @@
+{
+    "color": "0x151923",
+    "vis_polarisations": [
+        "expansion",
+        "entropy"
+    ],
+    "fusion_components": [
+        "fire",
+        "order"
+    ],
+    "particle_type_id": "minecraft:block",
+    "particle_block_id": "schism:shadowfire",
+    "particle_force": 0,
+    "particle_offset": 0.5
+}

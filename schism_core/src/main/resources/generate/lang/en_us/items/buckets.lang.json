@@ -1,0 +1,20 @@
+{
+    "item.schism.acid_bucket": "Acid Bucket",
+    "item.schism.acid_bucket.description": "A fluid that dissolves defenses.",
+    "item.schism.blood_bucket": "Blood Bucket",
+    "item.schism.blood_bucket.description": "A gruesome mixture of flesh and blood.",
+    "item.schism.ooze_bucket": "Ooze Bucket",
+    "item.schism.ooze_bucket.description": "A deadly freezing gel.",
+    "item.schism.poison_bucket": "Poison Bucket",
+    "item.schism.poison_bucket.description": "A poisonous fluid.",
+    "item.schism.veshoney_bucket": "Veshoney Bucket",
+    "item.schism.veshoney_bucket.description": "A thick sticky substance created by giant wasp-like insects.",
+    "item.schism.warded_acid_bucket": "Warded Acid Bucket",
+    "item.schism.warded_acid_bucket.description": "A fluid that dissolves defenses, enchanted with a protective ward.",
+    "item.schism.warded_lava_bucket": "Warded Lava Bucket",
+    "item.schism.warded_lava_bucket.description": "Molten rock and metal, enchanted with a protective ward.",
+    "item.schism.warded_ooze_bucket": "Warded Ooze Bucket",
+    "item.schism.warded_ooze_bucket.description": "A deadly freezing gel, enchanted with a protective ward.",
+    "item.schism.warded_poison_bucket": "Warded Poison Bucket",
+    "item.schism.warded_poison_bucket.description": "A poisonous fluid, enchanted with a protective ward."
+}

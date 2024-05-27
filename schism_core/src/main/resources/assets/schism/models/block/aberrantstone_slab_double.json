@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "schism:block/aberrantstone_polished",
+        "side": "schism:block/aberrantstoneslab"
+    }
+}

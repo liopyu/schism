@@ -1,0 +1,16 @@
+{
+    "entity_id": "minecraft:silverfish",
+    "creature_type": "silverfish",
+    "realm": "overworld",
+    "creature_roles": [
+        "animal"
+    ],
+    "base_element": "earth",
+    "resist_elements": [],
+    "weakness_elements": [],
+    "stats_per_level": {
+        "health": 0.1,
+        "attack": 0.1,
+        "defense": 0.1
+    }
+}

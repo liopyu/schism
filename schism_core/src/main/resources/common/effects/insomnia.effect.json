@@ -1,0 +1,12 @@
+{
+    "color": "0x002222",
+    "beneficial": false,
+    "detrimental": true,
+    "group": "curse",
+    "effect_actions": {
+        "bed": {
+            "type": "bed",
+            "cancel": true
+        }
+    }
+}

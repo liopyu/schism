@@ -1,0 +1,14 @@
+{
+    "color": "0x66BBFF",
+    "beneficial": true,
+    "detrimental": false,
+    "group": "charm",
+    "effect_actions": {
+        "knockback": {
+            "type": "knockback",
+            "on_damage_dealt": false,
+            "on_damage_taken": true,
+            "force": 2
+        }
+    }
+}

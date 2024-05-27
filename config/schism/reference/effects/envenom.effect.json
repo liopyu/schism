@@ -1,0 +1,18 @@
+{
+    "color": "0x44DD66",
+    "beneficial": true,
+    "detrimental": false,
+    "group": "boon",
+    "effect_actions": {
+        "spread_poison": {
+            "type": "spread",
+            "effect_id": "minecraft:poison",
+            "on_damage_dealt": true,
+            "range": 0,
+            "level_offset": 0,
+            "duration_min": 100,
+            "duration_inherit": false,
+            "include_self": false
+        }
+    }
+}

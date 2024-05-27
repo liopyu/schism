@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "schism:block/equipmen_tforge_lesser" },
+        "facing=south": { "model": "schism:block/equipmen_tforge_lesser", "y": 180 },
+        "facing=west":  { "model": "schism:block/equipmen_tforge_lesser", "y": 270 },
+        "facing=east":  { "model": "schism:block/equipmen_tforge_lesser", "y": 90 }
+    }
+}

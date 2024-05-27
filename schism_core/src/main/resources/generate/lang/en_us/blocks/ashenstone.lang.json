@@ -1,0 +1,19 @@
+{
+    "block.schism.*.description": "Once made from finely-constructed stone, now turned into hardened ash by magma.",
+    "block.schism.ashenstone": "Ashenstone",
+    "block.schism.ashenstone_brick": "Ashenstone Brick",
+    "block.schism.ashenstone_brick_fence": "Ashenstone Brick Fence",
+    "block.schism.ashenstone_brick_slab": "Ashenstone Brick Slab",
+    "block.schism.ashenstone_brick_stairs": "Ashenstone Brick Stairs",
+    "block.schism.ashenstone_brick_wall": "Ashenstone Brick Wall",
+    "block.schism.ashenstone_chiseled": "Chiseled Ashenstone",
+    "block.schism.ashenstone_pillar": "Ashenstone Pillar",
+    "block.schism.ashenstone_polished": "Polished Ashenstone",
+    "block.schism.ashenstone_slab": "Ashenstone Slab",
+    "block.schism.ashenstone_stairs": "Ashenstone Stairs",
+    "block.schism.ashenstone_tile": "Ashenstone Tile",
+    "block.schism.ashenstone_tile_slab": "Ashenstone Tile Slab",
+    "block.schism.ashenstone_tile_stairs": "Ashenstone Tile Stairs",
+    "block.schism.ashen_crystal": "Ashen Crystal",
+    "block.schism.ashen_crystal.description": "An enchanted crystal casing with lava inside."
+}

@@ -1,0 +1,79 @@
+{
+  "properties": {
+    "creative_mode_tab": "charges",
+    "creative_mode_icon": "",
+    "width": 0.5,
+    "height": 0.5
+  },
+  "behavior": {
+    "gravity": 0.0,
+    "velocity": 0.75,
+    "lifetime": {
+      "min": 100,
+      "max": 100
+    },
+    "impact": {
+      "hollow_blocks": false,
+      "solid_blocks": true,
+      "entities": true
+    },
+    "charge_elements": [
+      "frost"
+    ]
+  },
+  "render": {
+    "type": "sprite",
+    "scale": 0.5,
+    "glow": true,
+    "spin": 20,
+    "animation_frames": 4
+  },
+  "projectile_actions": {
+    "damage": {
+      "type": "damage",
+      "elements": [
+        "frost"
+      ],
+      "damage": 2,
+      "splash_radius": 0.0,
+      "on_impact": true,
+      "on_pierce_tick": 0
+    },
+    "effect": {
+      "type": "effect",
+      "effect_id": "schism:chill",
+      "ticks": 40,
+      "level": 1,
+      "splash_radius": 0,
+      "on_impact": true,
+      "on_pierce_tick": 0
+    },
+    "particles": {
+      "type": "particles",
+      "type_id": "schism:frost",
+      "block_id": "",
+      "fluid_type_id": "schism:frost",
+      "fluid_block_id": "",
+      "tick_interval": 10,
+      "chance": 1.0,
+      "size_min": 0.25,
+      "size_max": 0.5,
+      "offset_min": 0.0,
+      "offset_max": 0.25,
+      "force_min": 0.1,
+      "force_max": 0.2,
+      "count_min": 2,
+      "count_max": 4
+    },
+    "sound": {
+      "type": "sound",
+      "sound": "schism:projectile.ice",
+      "tick_interval": 120,
+      "chance": 1.0,
+      "volume_min": 0.5,
+      "volume_max": 1.0,
+      "pitch_min": 0.9,
+      "pitch_max": 1.1
+    }
+  }
+}

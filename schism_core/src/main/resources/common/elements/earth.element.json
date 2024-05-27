@@ -1,0 +1,12 @@
+{
+    "color": "0x795F3E",
+    "vis_polarisations": [
+        "compression"
+    ],
+    "fusion_components": [],
+    "particle_type_id": "schism:earth",
+    "particle_block_id": "",
+    "particle_force": 0.25,
+    "particle_offset": 0.25,
+    "sound": "schism:element.earth"
+}

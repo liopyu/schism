@@ -1,0 +1,8 @@
+{
+    "parent": "block/outer_stairs",
+    "textures": {
+        "bottom": "schism:block/demonstone",
+        "top": "schism:block/demonstone",
+        "side": "schism:block/demonstone"
+    }
+}

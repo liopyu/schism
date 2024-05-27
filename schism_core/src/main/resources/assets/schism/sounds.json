@@ -1,0 +1,803 @@
+{
+    "block.acid": {
+        "category": "block",
+        "sounds": [
+            {
+                "name": "schism:block/acid",
+                "stream": false
+            }
+        ]
+    },
+    "block.blood": {
+        "category": "block",
+        "sounds": [
+            {
+                "name": "schism:block/blood",
+                "stream": false
+            }
+        ]
+    },
+    "block.doomfire": {
+        "category": "block",
+        "sounds": [
+            {
+                "name": "schism:block/doomfire",
+                "stream": false
+            }
+        ]
+    },
+    "block.frost_cloud": {
+        "category": "block",
+        "sounds": [
+            {
+                "name": "schism:block/frost_cloud",
+                "stream": false
+            }
+        ]
+    },
+    "block.frostfire": {
+        "category": "block",
+        "sounds": [
+            {
+                "name": "schism:block/frostfire",
+                "stream": false
+            }
+        ]
+    },
+    "block.hellfire": {
+        "category": "block",
+        "sounds": [
+            {
+                "name": "schism:block/hellfire",
+                "stream": false
+            }
+        ]
+    },
+    "block.icefire": {
+        "category": "block",
+        "sounds": [
+            {
+                "name": "schism:block/icefire",
+                "stream": false
+            }
+        ]
+    },
+    "block.ooze": {
+        "category": "block",
+        "sounds": [
+            {
+                "name": "schism:block/ooze",
+                "stream": false
+            }
+        ]
+    },
+    "block.poison": {
+        "category": "block",
+        "sounds": [
+            {
+                "name": "schism:block/poison",
+                "stream": false
+            }
+        ]
+    },
+    "block.poison_cloud": {
+        "category": "block",
+        "sounds": [
+            {
+                "name": "schism:block/poison_cloud",
+                "stream": false
+            }
+        ]
+    },
+    "block.poop_cloud": {
+        "category": "block",
+        "sounds": [
+            {
+                "name": "schism:block/poop_cloud",
+                "stream": false
+            }
+        ]
+    },
+    "block.primefire": {
+        "category": "block",
+        "sounds": [
+            {
+                "name": "schism:block/primefire",
+                "stream": false
+            }
+        ]
+    },
+    "block.scorchfire": {
+        "category": "block",
+        "sounds": [
+            {
+                "name": "schism:block/scorchfire",
+                "stream": false
+            }
+        ]
+    },
+    "block.shadowfire": {
+        "category": "block",
+        "sounds": [
+            {
+                "name": "schism:block/shadowfire",
+                "stream": false
+            }
+        ]
+    },
+    "block.smitefire": {
+        "category": "block",
+        "sounds": [
+            {
+                "name": "schism:block/smitefire",
+                "stream": false
+            }
+        ]
+    },
+    "block.warded_acid": {
+        "category": "block",
+        "sounds": [
+            {
+                "name": "schism:block/warded_acid",
+                "stream": false
+            }
+        ]
+    },
+    "block.warded_lava": {
+        "category": "block",
+        "sounds": [
+            {
+                "name": "schism:block/warded_lava",
+                "stream": false
+            }
+        ]
+    },
+    "block.warded_ooze": {
+        "category": "block",
+        "sounds": [
+            {
+                "name": "schism:block/warded_ooze",
+                "stream": false
+            }
+        ]
+    },
+    "block.warded_poison": {
+        "category": "block",
+        "sounds": [
+            {
+                "name": "schism:block/warded_poison",
+                "stream": false
+            }
+        ]
+    },
+    "effect.fear": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:effect/fear",
+                "stream": false
+            }
+        ]
+    },
+    "element.acid": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:element/acid",
+                "stream": false
+            }
+        ]
+    },
+    "element.aether": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:element/aether",
+                "stream": false
+            }
+        ]
+    },
+    "element.air": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:element/air",
+                "stream": false
+            }
+        ]
+    },
+    "element.arbour": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:element/arbour",
+                "stream": false
+            }
+        ]
+    },
+    "element.arcane": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:element/arcane",
+                "stream": false
+            }
+        ]
+    },
+    "element.chaos": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:element/chaos",
+                "stream": false
+            }
+        ]
+    },
+    "element.earth": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:element/earth",
+                "stream": false
+            }
+        ]
+    },
+    "element.fae": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:element/fae",
+                "stream": false
+            }
+        ]
+    },
+    "element.fire": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:element/fire",
+                "stream": false
+            }
+        ]
+    },
+    "element.frost": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:element/frost",
+                "stream": false
+            }
+        ]
+    },
+    "element.lava": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:element/lava",
+                "stream": false
+            }
+        ]
+    },
+    "element.light": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:element/light",
+                "stream": false
+            }
+        ]
+    },
+    "element.lightning": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:element/lightning",
+                "stream": false
+            }
+        ]
+    },
+    "element.nether": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:element/nether",
+                "stream": false
+            }
+        ]
+    },
+    "element.order": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:element/order",
+                "stream": false
+            }
+        ]
+    },
+    "element.phase": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:element/phase",
+                "stream": false
+            }
+        ]
+    },
+    "element.poison": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:element/poison",
+                "stream": false
+            }
+        ]
+    },
+    "element.quake": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:element/quake",
+                "stream": false
+            }
+        ]
+    },
+    "element.shadow": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:element/shadow",
+                "stream": false
+            }
+        ]
+    },
+    "element.void": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:element/void",
+                "stream": false
+            }
+        ]
+    },
+    "element.water": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:element/water",
+                "stream": false
+            }
+        ]
+    },
+    "gui.page": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:gui/page",
+                "stream": false
+            }
+        ]
+    },
+    "notification.creature": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:notification/creature",
+                "stream": false
+            }
+        ]
+    },
+    "notification.element": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:notification/element",
+                "stream": false
+            }
+        ]
+    },
+    "notification.god": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:notification/god",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.aqua": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/aqua",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.blizzard": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/blizzard",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.blossom": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/blossom",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.boulder": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/boulder",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.crystal": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/crystal",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.diligence": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/diligence",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.dissolve": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/dissolve",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.dissolve_impact": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/dissolve_impact",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.doomfire": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/doomfire",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.drain": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/drain",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.ember": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/ember",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.entropy": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/entropy",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.entropy_impact": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/entropy_impact",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.envy": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/envy",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.foul": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/foul",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.frostweb": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/frostweb",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.glob": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/glob",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.greed": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/greed",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.hellfire": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/hellfire",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.ice": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/ice",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.icefire": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/icefire",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.jet": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/jet",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.leech": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/leech",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.ley": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/ley",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.leystorm": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/leystorm",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.lust": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/lust",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.magma": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/magma",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.mud": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/mud",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.noxious": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/noxious",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.poop": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/poop",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.pride": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/pride",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.primefire": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/primefire",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.quill": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/quill",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.radiance": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/radiance",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.ruin": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/ruin",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.scorchfire": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/scorchfire",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.scythe": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/scythe",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.seed": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/seed",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.spectral": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/spectral",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.trickster": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/trickster",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.tundra": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/tundra",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.umbra": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/umbra",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.venom": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/venom",
+                "stream": false
+            }
+        ]
+    },
+    "projectile.whirlwind": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "schism:projectile/whirlwind",
+                "stream": false
+            }
+        ]
+    }
+}

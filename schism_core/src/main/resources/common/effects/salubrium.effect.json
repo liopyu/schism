@@ -1,0 +1,28 @@
+{
+    "color": "0x0055FF",
+    "beneficial": true,
+    "detrimental": false,
+    "group": "charm",
+    "effect_actions": {
+        "spread_salubrium": {
+            "type": "spread",
+            "effect_id": "schism:salubrium",
+            "on_damage_dealt": false,
+            "range": 10,
+            "level_offset": -1,
+            "duration_min": 60,
+            "duration_inherit": true,
+            "include_self": true
+        },
+        "spread_regeneration": {
+            "type": "spread",
+            "effect_id": "minecraft:regeneration",
+            "on_damage_dealt": false,
+            "range": 15,
+            "level_offset": 0,
+            "duration_min": 100,
+            "duration_inherit": true,
+            "include_self": true
+        }
+    }
+}

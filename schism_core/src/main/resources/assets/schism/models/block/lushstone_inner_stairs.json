@@ -1,0 +1,8 @@
+{
+    "parent": "block/inner_stairs",
+    "textures": {
+        "bottom": "schism:block/lushstone",
+        "top": "schism:block/lushstone",
+        "side": "schism:block/lushstone"
+    }
+}

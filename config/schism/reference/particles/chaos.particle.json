@@ -1,0 +1,12 @@
+{
+    "override_limiter": false,
+    "size": 1.0,
+    "lifetime_min": 12,
+    "lifetime_max": 20,
+    "animation_ticks": 4,
+    "random_animation_offset": true,
+    "physics": false,
+    "gravity": 0,
+    "alpha": 0.8,
+    "glow": true
+}

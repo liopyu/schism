@@ -1,0 +1,50 @@
+{
+    "schism.realm": "Realm",
+    "schism.realms.description": "The great Schism has torn open rifts across vast universes exposing either planets or planes across merging realities. A realm refers to a plane or planet from one of these universes, from the Nether Plane of the Minecraft Universe to the planet Parthas of the Verdant Universe.",
+
+    "schism.universe": "Universe",
+    "schism.universe.description": "Universes are realities with their own laws of nature and host of life, magic and more.",
+
+    "schism.realm.type.plane": "Plane",
+    "schism.realm.type.plane.description": "A plane in an infinite sprawling terrain or reality, some flat some composed of islands float amongst an empty atmosphere. The Minecraft and Hell Universes are examples of universe made up of infinite planes.",
+    "schism.realm.type.planet": "Planet",
+    "schism.realm.type.planet.description": "A planet is a large spheroid celestial body, usually in orbit around a star or another larger planet. The Verdant and Crimson Universes are examples of universes made up of planets within celestial space.",
+
+    "schism.universe.minecraft": "Minecraft",
+    "schism.universe.minecraft.description": "The Minecraft Universe is made up of infinite flat planes including the Overworld, the Nether and the End along with other mysterious planes.",
+    "schism.universe.verdant": "Verdant",
+    "schism.universe.verdant.description": "The Verdant Universe is made up of galaxies full of stars and planets, some of these planets are home to a great wealth of life of which are now flowing fourth through rifts caused by the great Schism into the Minecraft Universe.",
+    "schism.universe.crimson": "Crimson",
+    "schism.universe.crimson.description": "The Crimson Universe is made up of galaxies full of stars and planets, however it has been afflicted by the great Schism for a long time and is rife with large rifts connecting to Hell.",
+    "schism.universe.hell": "Hell",
+    "schism.universe.hell.description": "The Hell Universe is made up of infinite planes that vary drastically, from large islands to warping fields of flesh that spiral through endless boggy fogs to planes that copy structures and areas of other realities in endless succession.",
+
+    "schism.realm.overworld": "Overworld",
+    "schism.realm.overworld.description": "A habitable and diverse plane of the Minecraft universe with a wide range of biomes and lifeforms.",
+    "schism.realm.nether": "Nether",
+    "schism.realm.nether.description": "A hostile plane full of lava, a flesh like substance referred to as netherrack as well as warped forests teeming with the souls of the dead.",
+    "schism.realm.the_end": "The End",
+    "schism.realm.the_end.description": "A near entirely barren plane shrouded in darkness, though not a true void due to being filled with air, space and time.",
+    "schism.realm.twilight_forest": "Twilight Forest",
+    "schism.realm.twilight_forest.description": "An eternal forest locked in twilight, this mystical Minecraft Plane holds many ancient secrets.",
+
+    "schism.realm.parthas": "Parthas",
+    "schism.realm.parthas.description": "A large planet with vast bio diversity, advanced civilisations and abnormally dense ley lines causing it to act as a become across space, time and reality. All manner of mystical creatures hail from this realm.",
+    "schism.realm.vaultar": "Vaultar",
+    "schism.realm.vaultar.description": "A small planet whose societies became isolated from their neighboring worlds, all manner of anomalies flood the planet and many gods compete over shifting territories across this realm.",
+    "schism.realm.boloth": "Boloth",
+    "schism.realm.boloth.description": "A large planet of mostly deserts, vast oasis and dense swamps with a barren icy north and south continent. Insect, reptilian and amphibian life are very prominent in this realm.",
+    "schism.realm.hex": "Hex",
+    "schism.realm.hex.description": "An eyeball planet that is locked facing twin stars, as a result there is no day or night cycle and only a thin ring around the planet is actually habitable, the rest a molten sea or frozen night. All manner of strange lifeforms inhabit this realm.",
+    "schism.realm.morterra": "Morterra",
+    "schism.realm.morterra.description": "A planet once simply called Earth in the Verdant Universe, however long has it been abandoned since the death god Tchernobog has come to rule it, its ancient inhabitants all since long fled to Parthas and beyond, vast undead horrors now roam this dead planet.",
+
+    "schism.realm.erebus": "Erebus",
+    "schism.realm.erebus.description": "An infinite Hell plane of fire and brimstone, the laws of time flow differently unmaking death and breeding creatures of reckless fury known as demons.",
+    "schism.realm.purgatory": "Purgatory",
+    "schism.realm.purgatory.description": "An infinite Hell plane of distorted flesh, creatures that stay too long become part of the endless hills of blood, skin and bone and creatures that stay even longer are reborn into monstrous aberrations.",
+    "schism.realm.underworld": "Underworld",
+    "schism.realm.underworld.description": "The very edge of Hell looking out into an all consuming void, built of endless caverns, icy glacias and void locked islands. The most deadly and obscure demons and aberrations survive this nightmare and call it home.",
+    "schism.realm.acheron": "Acheron",
+    "schism.realm.acheron.description": "A confusing plane of Hell that appears to be built from copies of other realms randomly interconnected, artificial structures and buildings are the most prominent. Bizarre and unpredictable life also originates from within this broken reality."
+}

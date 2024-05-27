@@ -1,0 +1,16 @@
+{
+    "color": "0x7F0000",
+    "vis_polarisations": [
+        "progression",
+        "entropy"
+    ],
+    "fusion_components": [
+        "air",
+        "chaos"
+    ],
+    "particle_type_id": "schism:nether",
+    "particle_block_id": "",
+    "particle_force": 0.25,
+    "particle_offset": 0.5,
+    "sound": "schism:element.nether"
+}

@@ -1,0 +1,36 @@
+{
+    "properties": {
+        "creative_mode_tab": "items",
+        "creative_mode_icon": "items",
+        "stack_size": 1,
+        "durability": 0,
+        "container_item_id": "schism:soulgazer",
+        "rarity": "uncommon",
+        "fire_resistant": false,
+        "no_repair": true
+    },
+    "behavior": {
+        "cooldown": 120,
+        "experience": 0.35,
+        "use_animation": "bow",
+        "use_ticks": 64,
+        "use_continuous": false,
+        "use_cost": 0,
+        "inventory_ticks": 0,
+        "fuel_time": 0
+    },
+    "item_actions": {
+        "testing": {
+            "type": "effect",
+            "effect_id": "schism:insomnia",
+            "duration": 60,
+            "level": 1,
+            "on_self_use": true,
+            "on_target_use": true,
+            "on_hit": false,
+            "on_craft": false,
+            "on_inventory_tick": false,
+            "on_block_ids": []
+        }
+    }
+}

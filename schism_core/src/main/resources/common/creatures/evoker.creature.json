@@ -1,0 +1,20 @@
+{
+    "entity_id": "minecraft:evoker",
+    "creature_type": "evoker",
+    "realm": "overworld",
+    "creature_roles": [
+        "monster"
+    ],
+    "base_element": "quake",
+    "resist_elements": [
+
+    ],
+    "weakness_elements": [
+
+    ],
+    "stats_per_level": {
+        "health": 0.1,
+        "attack": 0.2,
+        "defense": 0.01
+    }
+}

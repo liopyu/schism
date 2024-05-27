@@ -1,0 +1,13 @@
+{
+    "layers": [
+        {
+            "index": 0,
+            "texture_suffix": "",
+            "blending": "additive",
+            "blur": false,
+            "mipmap": true,
+            "glow": true,
+            "animation_name": "main"
+        }
+    ]
+}

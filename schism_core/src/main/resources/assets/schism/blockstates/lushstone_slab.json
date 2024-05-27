@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "schism:block/lushstone_slab" },
+        "type=top": { "model": "schism:block/lushstone_slab_top" },
+        "type=double": { "model": "schism:block/lushstone_slab_double" }
+    }
+}

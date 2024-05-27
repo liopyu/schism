@@ -1,0 +1,16 @@
+{
+    "color": "0x00ABF5",
+    "vis_polarisations": [
+        "expansion",
+        "progression"
+    ],
+    "fusion_components": [
+        "fire",
+        "air"
+    ],
+    "particle_type_id": "schism:lightning",
+    "particle_block_id": "",
+    "particle_force": 0.25,
+    "particle_offset": 0.5,
+    "sound": "schism:element.lightning"
+}

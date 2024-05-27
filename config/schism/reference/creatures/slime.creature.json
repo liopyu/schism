@@ -1,0 +1,22 @@
+{
+    "entity_id": "minecraft:slime",
+    "creature_type": "slime",
+    "creature_roles": [
+        "monster"
+    ],
+    "base_element": "acid",
+    "resist_elements": [
+        "water",
+        "acid",
+        "arbour",
+        "fae",
+        "poison"
+    ],
+    "weakness_elements": [
+        "fire",
+        "earth",
+        "order",
+        "lava",
+        "frost"
+    ]
+}

@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "owner=0": { "model": "schism:block/summoning_pedestal_none" },
+        "owner=1": { "model": "schism:block/summoning_pedestal_client" },
+        "owner=2": { "model": "schism:block/summoning_pedestal_player" }
+    }
+}

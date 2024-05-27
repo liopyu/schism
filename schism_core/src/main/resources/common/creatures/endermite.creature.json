@@ -1,0 +1,20 @@
+{
+    "entity_id": "minecraft:endermite",
+    "creature_type": "endermite",
+    "realm": "end",
+    "creature_roles": [
+        "monster"
+    ],
+    "base_element": "phase",
+    "resist_elements": [
+
+    ],
+    "weakness_elements": [
+
+    ],
+    "stats_per_level": {
+        "health": 0.1,
+        "attack": 0.2,
+        "defense": 0.01
+    }
+}

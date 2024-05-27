@@ -1,0 +1,16 @@
+{
+    "entity_id": "minecraft:cat",
+    "creature_type": "cat",
+    "realm": "overworld",
+    "creature_roles": [
+        "animal"
+    ],
+    "base_element": "quake",
+    "resist_elements": [],
+    "weakness_elements": [],
+    "stats_per_level": {
+        "health": 0.1,
+        "attack": 0.1,
+        "defense": 0.1
+    }
+}

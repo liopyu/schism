@@ -1,0 +1,19 @@
+{
+    "block.schism.*.description": "There is something alien about these decorative blocks.",
+    "block.schism.aberrantstone": "Aberrantstone",
+    "block.schism.aberrantstone_brick": "Aberrantstone Brick",
+    "block.schism.aberrantstone_brick_fence": "Aberrantstone Brick Fence",
+    "block.schism.aberrantstone_brick_slab": "Aberrantstone Brick Slab",
+    "block.schism.aberrantstone_brick_stairs": "Aberrantstone Brick Stairs",
+    "block.schism.aberrantstone_brick_wall": "Aberrantstone Brick Wall",
+    "block.schism.aberrantstone_chiseled": "Chiseled Aberrantstone",
+    "block.schism.aberrantstone_pillar": "Aberrantstone Pillar",
+    "block.schism.aberrantstone_polished": "Polished Aberrantstone",
+    "block.schism.aberrantstone_slab": "Aberrantstone Slab",
+    "block.schism.aberrantstone_stairs": "Aberrantstone Stairs",
+    "block.schism.aberrantstone_tile": "Aberrantstone Tile",
+    "block.schism.aberrantstone_tile_slab": "Aberrantstone Tile Slab",
+    "block.schism.aberrantstone_tile_stairs": "Aberrantstone Tile Stairs",
+    "block.schism.aberrant_crystal": "Aberrant Crystal",
+    "block.schism.aberrant_crystal.description": "The light emitted feels like it comes from another world."
+}
