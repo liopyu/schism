@@ -1,8 +1,0 @@
-{
-	"type": "minecraft:stonecutting",
-	"ingredient": {
-		"item": "schism:lushstone_tile"
-	},
-	"result": "schism:lushstone_tile_slab",
-	"count": 2
-}

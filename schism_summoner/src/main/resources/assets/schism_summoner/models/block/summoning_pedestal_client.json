@@ -1,9 +1,0 @@
-{
-    "parent": "block/cube_bottom_top",
-    "textures": {
-        "top": "schism:block/summoning_pedestal_client_top",
-        "side": "schism:block/summoning_pedestal_client_side",
-        "bottom": "schism:block/summoning_pedestal_client",
-        "particle": "schism:block/summoning_pedestal_client"
-    }
-}

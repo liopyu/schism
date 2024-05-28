@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "axis=y": { "model": "schism:block/demonstone_pillar" },
-        "axis=z": { "model": "schism:block/demonstone_pillar", "x": 90 },
-        "axis=x": { "model": "schism:block/demonstone_pillar", "x": 90, "y": 90 }
-    }
-}

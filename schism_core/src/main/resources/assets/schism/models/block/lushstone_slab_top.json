@@ -1,8 +1,0 @@
-{
-    "parent": "block/slab_top",
-    "textures": {
-        "bottom": "schism:block/lushstone_polished",
-        "top": "schism:block/lushstone_polished",
-        "side": "schism:block/lushstoneslab"
-    }
-}

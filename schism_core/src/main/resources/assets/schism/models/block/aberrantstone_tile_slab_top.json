@@ -1,8 +1,0 @@
-{
-    "parent": "block/slab_top",
-    "textures": {
-        "bottom": "schism:block/aberrantstone_tile",
-        "top": "schism:block/aberrantstone_tile",
-        "side": "schism:block/aberrantstone_tile"
-    }
-}

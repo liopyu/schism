@@ -16,10 +16,18 @@ out
 # gradle
 build
 .gradle
+GradleHome
+
+# blender
+*.blend1
 
 # other
 eclipse
 run
+*.png~
 
 # Files from Forge MDK
 forge*changelog.txt
+
+# logs
+logs/*

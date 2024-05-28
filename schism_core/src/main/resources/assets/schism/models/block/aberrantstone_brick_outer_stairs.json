@@ -1,8 +1,0 @@
-{
-    "parent": "block/outer_stairs",
-    "textures": {
-        "bottom": "schism:block/aberrantstone_brick",
-        "top": "schism:block/aberrantstone_brick",
-        "side": "schism:block/aberrantstone_brick"
-    }
-}

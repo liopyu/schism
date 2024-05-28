@@ -1,8 +1,0 @@
-{
-    "parent": "block/slab",
-    "textures": {
-        "bottom": "schism:block/desertstone_brick",
-        "top": "schism:block/desertstone_brick",
-        "side": "schism:block/desertstone_brick"
-    }
-}

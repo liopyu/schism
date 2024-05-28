@@ -1,8 +1,0 @@
-{
-    "parent": "block/stairs",
-    "textures": {
-        "bottom": "schism:block/desertstone_tile",
-        "top": "schism:block/desertstone_tile",
-        "side": "schism:block/desertstone_tile"
-    }
-}

@@ -1,7 +1,0 @@
-{
-    "parent": "block/cube_column",
-    "textures": {
-        "end": "schism:block/darkstone_pillar_top",
-        "side": "schism:block/darkstone_pillar"
-    }
-}

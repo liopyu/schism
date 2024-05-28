@@ -1,9 +1,0 @@
-{
-    "parent": "block/orientable",
-    "textures": {
-        "top": "schism:block/equipment_station_top",
-        "front": "schism:block/equipment_station_front",
-        "side": "schism:block/equipment_station_side",
-        "bottom": "schism:block/equipment_station_bottom"
-    }
-}

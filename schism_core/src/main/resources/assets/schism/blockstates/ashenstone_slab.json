@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=bottom": { "model": "schism:block/ashenstone_slab" },
-        "type=top": { "model": "schism:block/ashenstone_slab_top" },
-        "type=double": { "model": "schism:block/ashenstone_slab_double" }
-    }
-}
