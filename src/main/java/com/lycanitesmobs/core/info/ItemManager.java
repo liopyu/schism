@@ -18,14 +18,13 @@ import com.lycanitesmobs.core.item.special.ItemSoulgazer;
 import com.lycanitesmobs.core.item.special.ItemSoulkey;
 import com.lycanitesmobs.core.item.special.ItemSoulstone;
 import com.lycanitesmobs.core.item.summoningstaff.*;
-import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
-import net.minecraft.item.*;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.event.RegistryEvent;
+import com.lycanitesmobs.core.util.LycaniteMobsHelperClass;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fluids.FluidAttributes;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 
 import java.lang.reflect.Constructor;
@@ -55,11 +54,11 @@ public class ItemManager extends JSONLoader {
 	public ItemConfig config;
 
 	// Creative Tabs:
-	public final ItemGroup itemsGroup = new LMItemsGroup(LycanitesMobs.MODID + ".items");
-	public final ItemGroup blocksGroup = new LMBlocksGroup(LycanitesMobs.MODID + ".blocks");
-	public final ItemGroup creaturesGroups = new LMCreaturesGroup(LycanitesMobs.MODID + ".creatures");
-	public final ItemGroup chargesGroup = new LMChargesGroup(LycanitesMobs.MODID + ".charges");
-	public final ItemGroup equipmentPartsGroup = new LMEquipmentPartsGroup(LycanitesMobs.MODID + ".equipmentparts");
+	public final CreativeModeTab itemsGroup = new LMItemsGroup(LycanitesMobs.MODID + ".items");
+	public final CreativeModeTab blocksGroup = new LMBlocksGroup(LycanitesMobs.MODID + ".blocks");
+	public final CreativeModeTab creaturesGroups = new LMCreaturesGroup(LycanitesMobs.MODID + ".creatures");
+	public final CreativeModeTab chargesGroup = new LMChargesGroup(LycanitesMobs.MODID + ".charges");
+	public final CreativeModeTab equipmentPartsGroup = new LMEquipmentPartsGroup(LycanitesMobs.MODID + ".equipmentparts");
 
 
 	/** Returns the main Item Manager instance or creates it and returns it. **/
@@ -277,24 +276,27 @@ public class ItemManager extends JSONLoader {
 		}
 
 		Item item = itemStack.getItem();
-		for (String itemId : ItemConfig.lowEquipmentSharpnessItems) {
-			if (new ResourceLocation(itemId).equals(item.getRegistryName())) {
-				return ItemConfig.lowEquipmentRepairAmount;
+		Object locationObj = LycaniteMobsHelperClass.convertObjectToDesired(item, "resourcelocation");
+		if (locationObj instanceof ResourceLocation location) {
+			for (String itemId : ItemConfig.lowEquipmentSharpnessItems) {
+				if (new ResourceLocation(itemId).equals(location)) {
+					return ItemConfig.lowEquipmentRepairAmount;
+				}
 			}
-		}
-		for (String itemId : ItemConfig.mediumEquipmentSharpnessItems) {
-			if (new ResourceLocation(itemId).equals(item.getRegistryName())) {
-				return ItemConfig.mediumEquipmentRepairAmount;
+			for (String itemId : ItemConfig.mediumEquipmentSharpnessItems) {
+				if (new ResourceLocation(itemId).equals(location)) {
+					return ItemConfig.mediumEquipmentRepairAmount;
+				}
 			}
-		}
-		for (String itemId : ItemConfig.highEquipmentSharpnessItems) {
-			if (new ResourceLocation(itemId).equals(item.getRegistryName())) {
-				return ItemConfig.highEquipmentRepairAmount;
+			for (String itemId : ItemConfig.highEquipmentSharpnessItems) {
+				if (new ResourceLocation(itemId).equals(location)) {
+					return ItemConfig.highEquipmentRepairAmount;
+				}
 			}
-		}
-		for (String itemId : ItemConfig.maxEquipmentSharpnessItems) {
-			if (new ResourceLocation(itemId).equals(item.getRegistryName())) {
-				return ItemEquipment.SHARPNESS_MAX;
+			for (String itemId : ItemConfig.maxEquipmentSharpnessItems) {
+				if (new ResourceLocation(itemId).equals(location)) {
+					return ItemEquipment.SHARPNESS_MAX;
+				}
 			}
 		}
 		return 0;
@@ -311,27 +313,30 @@ public class ItemManager extends JSONLoader {
 		}
 
 		Item item = itemStack.getItem();
-		if (item instanceof ChargeItem) {
-			return ItemConfig.highEquipmentRepairAmount;
-		}
-		for (String itemId : ItemConfig.lowEquipmentManaItems) {
-			if (new ResourceLocation(itemId).equals(item.getRegistryName())) {
-				return ItemConfig.lowEquipmentRepairAmount;
-			}
-		}
-		for (String itemId : ItemConfig.mediumEquipmentManaItems) {
-			if (new ResourceLocation(itemId).equals(item.getRegistryName())) {
-				return ItemConfig.mediumEquipmentRepairAmount;
-			}
-		}
-		for (String itemId : ItemConfig.highEquipmentManaItems) {
-			if (new ResourceLocation(itemId).equals(item.getRegistryName())) {
+		Object locationObj = LycaniteMobsHelperClass.convertObjectToDesired(item, "resourcelocation");
+		if (locationObj instanceof ResourceLocation location) {
+			if (item instanceof ChargeItem) {
 				return ItemConfig.highEquipmentRepairAmount;
 			}
-		}
-		for (String itemId : ItemConfig.maxEquipmentManaItems) {
-			if (new ResourceLocation(itemId).equals(item.getRegistryName())) {
-				return ItemEquipment.MANA_MAX;
+			for (String itemId : ItemConfig.lowEquipmentManaItems) {
+				if (new ResourceLocation(itemId).equals(location)) {
+					return ItemConfig.lowEquipmentRepairAmount;
+				}
+			}
+			for (String itemId : ItemConfig.mediumEquipmentManaItems) {
+				if (new ResourceLocation(itemId).equals(location)) {
+					return ItemConfig.mediumEquipmentRepairAmount;
+				}
+			}
+			for (String itemId : ItemConfig.highEquipmentManaItems) {
+				if (new ResourceLocation(itemId).equals(location)) {
+					return ItemConfig.highEquipmentRepairAmount;
+				}
+			}
+			for (String itemId : ItemConfig.maxEquipmentManaItems) {
+				if (new ResourceLocation(itemId).equals(location)) {
+					return ItemEquipment.MANA_MAX;
+				}
 			}
 		}
 		return 0;

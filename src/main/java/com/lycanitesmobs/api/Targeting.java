@@ -1,7 +1,7 @@
 package com.lycanitesmobs.api;
 
 import com.google.common.collect.Sets;
-import net.minecraft.entity.Entity;
+import net.minecraft.world.entity.Entity;
 
 import java.util.Set;
 import java.util.function.BiFunction;

@@ -1,7 +1,8 @@
 package com.lycanitesmobs.api;
 
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
+
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 
 public interface IFusable {
 
